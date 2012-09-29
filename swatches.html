@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!--[if lt IE 10]>  
+<script src="https://raw.github.com/dkastner/jquery.iecors/master/jquery.iecors.js"></script>
+<![endif]-->
+<script src="https://raw.github.com/janl/mustache.js/master/mustache.js"></script>
+<meta charset=utf-8 />
+<title>Bootswatch API Example</title>
+<style>
+	.hidden { display: none; }
+</style>
+</head>
+<body>
+<script>
+
+$.get("http://api.bootswatch.com", function (data) {
+			
+     var t_menu = "<div id='menu'><select>{{#.}}<option>{{name}}</option>{{/.}}</select></div>";
+     var t_previews = "{{#.}}<div class='preview hidden' id='{{name}}'><h1>{{name}}: {{description}}</h1><p><a href='{{preview}}'><img src='{{thumbnail}}'></a></p></div>{{/.}}";
+					
+     var o_menu = Mustache.render(t_menu, data.themes);
+     var o_previews = Mustache.render(t_previews, data.themes);					
+
+    $('body').append(o_menu + o_previews);
+			
+    $('.preview').first().removeClass('hidden');
+									
+    $('#menu').change(function(){                    
+      $('.preview').addClass('hidden');
+      var show = '#' + $('#menu :selected').text();
+      $(show).removeClass('hidden');
+    });
+			
+}, "json");
+	
+</script>
+</body>
+</html>
