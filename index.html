@@ -26,20 +26,43 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<input type="image" onclick="location.href='index.html'" class="brand" src="img/logo.gif" name="image" width="212" height="84">
+					<a class="brand" href="#">ConnectWithContractors</a>
+					<!--input type="image" onclick="location.href='index.html'" class="brand" src="img/logo.gif" name="image" width="212" height="84"-->
+					<ul class="nav">
+						<li class="active">
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li>
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div id="fb-root"></div>
 			<script>
+				( function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id))
+							return;
+						js = d.createElement(s);
+						js.id = id;
+						js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=266894066765245";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<script>
 				window.fbAsyncInit = function() {
 					FB.init({
 						appId : 266894066765245,
-						channelUrl : connectwithcontractors.github.com/channel.html,
+						channelUrl : connectwithcontractors.github.com / channel.html,
 						status : true,
-						cookie : true, 
-						xfbml : true 
+						cookie : true,
+						xfbml : true
 					});
 
 					// Additional initialization code here
@@ -67,9 +90,8 @@
 			style="border:none"
 			allowTransparency="true"
 			width="100%"
-			height="250">
-			</iframe>
-			
+			height="250"></iframe>
+
 			<!-- Main hero unit for a primary marketing message or call to action -->
 			<div class="hero-unit">
 				<h3>Get bids from local contractors in seconds.</h3>
@@ -143,7 +165,44 @@
 
 			<footer>
 				<p>
-					&copy; ConnectWithContractors 2012
+					<div class="row">
+						<div class="span4">
+							&copy; ConnectWithContractors 2012
+
+						</div>
+						<div class="span4">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+
+							<script>
+								! function(d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0];
+									if (!d.getElementById(id)) {
+										js = d.createElement(s);
+										js.id = id;
+										js.src = "https://platform.twitter.com/widgets.js";
+										fjs.parentNode.insertBefore(js, fjs);
+									}
+								}(document, "script", "twitter-wjs");
+							</script>
+							<a href="https://twitter.com/cnwtcontractors" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
+
+							<script>
+								! function(d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0];
+									if (!d.getElementById(id)) {
+										js = d.createElement(s);
+										js.id = id;
+										js.src = "//platform.twitter.com/widgets.js";
+										fjs.parentNode.insertBefore(js, fjs);
+									}
+								}(document, "script", "twitter-wjs");
+							</script>
+						</div>
+						<div class="span4">
+							<div class="fb-like" data-href="http://connectwithcontractors.github.com" data-send="true" data-width="450" data-show-faces="true"></div>
+						</div>
+
+					</div>
 				</p>
 			</footer>
 
@@ -166,13 +225,9 @@
 		<script src="../assets/js/bootstrap-collapse.js"></script>
 		<script src="../assets/js/bootstrap-carousel.js"></script>
 		<script src="../assets/js/bootstrap-typeahead.js"></script>
-
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-		<!-- Bootstrap -->
 		<script src="js/bootstrap.min.js"></script>
-		<!-- Project -->
 		<script src="js/application.js"></script>
 	</body>
 </html>
