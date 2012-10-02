@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Trap Key+Dynamically Changing Stylesheets</title>
+		<script type="text/javascript">
+			document.onkeydown = TrapKey;
+			var globallyTrackedStyleNum = 1;
+			
+			function TrapKey(e) {
+				var key = (e) ? e.which : event.keyCode;
+				if (key == 39)
+					changeStyle();
+				return true;
+			}
+
+			function changeStyle() {
+				var currentReportedCssFileUriString = document.getElementById('stylesheet').href;
+				alert("value of current reported css file uri string on entering funcion changeStyle(): " + currentReportedCssFileUriString);
+				var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 9, currentReportedCssFileUriString.length - 8);
+				alert("value of current reported style number PRIOR to check if matching globally tracked style number : "+ currentReportedStyleNum);
+				alert("value of globally tracked style number PRIOR to check that current reported style number is consistent with it : "+ globallyTrackedStyleNum);
+				if(!(globallyTrackedStyleNum==currentReportedStyleNum))
+				{
+					alert("Made it into block of if(!(globallyTrackedStyleNum==currentReportedStyleNum))");
+					currentReportedStyleNum=globallyTrackedStyleNum;
+				}
+			    alert("value of current reported style number AFTER to check if matching globally tracked style number : "+ currentReportedStyleNum);
+				alert("value of globally tracked style number AFTER check that current reported style number is consistent with it : "+ globallyTrackedStyleNum);
+				var oldStyleNum=currentReportedStyleNum;
+				if (currentReportedStyleNum == 6)
+				{
+				currentReportedStyleNum = 0;
+				globallyTrackedStyleNum= 0;
+				}
+			    currentReportedStyleNum++;
+				globallyTrackedStyleNum++;
+			   // alert("oldStyleNum= "+oldStyleNum+" : currentReportedStyleNum= "+currentReportedStyleNum);
+				var newCssFileUriString = currentReportedCssFileUriString.replace(oldStyleNum, globallyTrackedStyleNum);
+				//alert(newCssFile);
+				document.getElementById('stylesheet').href = newCssFileUriString;
+			}
+		</script>
+		<link href="css/bootstrap1.min.css" type="text/css" rel="stylesheet" id="stylesheet">
+	</head>
+
+	<body>
+		<p>
+			Press the right arrow to cycle through ConnectWithContractors.com's custom bootstrap themes, our gift to the web dev community.
+		</p>
+	</body>
+</html>
+
