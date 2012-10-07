@@ -5,6 +5,8 @@ function TrapKey(e) {
 	var key = (e) ? e.which : event.keyCode;
 	if (key == 39)
 		changeStyle();
+	if (key == 38)
+	    changeNav();	
 	return true;
 }
 

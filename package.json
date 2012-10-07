@@ -1,0 +1,30 @@
+{
+	"name": "ConnectWithContractors",
+	"version": "v0.1",
+	"description": "A template for quickly building social commerce networks.",
+	"author": {
+		"name": "Allison Mobley, CTO- ConnectWithContractors.com",
+		"email": "connectwithcontractors@gmail.com"
+	},
+	"website":{
+		"url": "connectwithcontractors.github.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/connectwithcontractors/connectwithcontractors.github.com.git"
+	},
+	"private": true,
+	"dependencies": {
+		"express": "2.x.x",
+		"stylus": ">= 0.29.x",
+		"jade": ">= 0.27.x",
+		"bcrypt": ">= 0.5.x",
+		"mongodb": ">= 1.1.x",
+		"moment" : ">=1.7.x",
+		"emailjs": ">= 0.3.x"
+	},
+	"engines": {
+		"node": "0.8.x",
+		"npm":  "1.1.x"
+	}
+}
