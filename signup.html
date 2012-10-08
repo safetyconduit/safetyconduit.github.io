@@ -28,7 +28,7 @@
 		<div id="navbar" class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="index.html">ConnectWithContractors</a>
+					<a class="brand" href="#">ConnectWithContractors</a>
 					<!--input type="image" onclick="location.href='index.html'" class="brand" src="img/logo.gif" name="image" width="212" height="84"-->
 					<ul class="nav">
 						<li class="active">
@@ -48,25 +48,80 @@
 				</div>
 			</div>
 		</div>
-		<div class="jumbotron masthead" style="padding:30px 0 42px">
+		<div class="jumbotron masthead">
 			<div class="container">
-				<h1 style="font-size:40px;text-align:left"><i class="icon-home icon-white" style="margin:20px"></i>Homeowners<i class="icon-home icon-white" style="margin:20px"></i></h1>
-				<h2 style="text-align:left">Looking for the right contractor @ the right price?</h2>
-				<p style="font-size:20px;text-align:left">
-					You get a competitive price and know exactly whom you are hiring.  Its that simple!
-				</p><hr>
-				<h1 style="font-size:40px;text-align:left"><i class="icon-wrench icon-white" style="margin:20px"></i>Contractors<i class="icon-wrench icon-white" style="margin:20px"></i></h1>
-				<h2 style="text-align:left" >Looking to get jobs without buying ads?</h2>
-				<p style="font-size:20px;text-align:left">
-					Get a text anytime a job comes up in your area matching your skill set.  Free leads!
-				</p><hr>
-				<h1 style="font-size:40px;text-align:left"><i class="icon-briefcase icon-white" style="margin:20px"></i>Managers<i class="icon-briefcase icon-white" style="margin:20px"></i></h1>
-				<h2 style="text-align:left">Looking to mediate between homeowners and contractors?</h2>
-				<p style="font-size:20px;text-align:left">
-					Apply your expertise collecting scope of work and subcontracting it out.  Grow your biz!
-				</p>
+				<input type="hidden" id="userId">
+				<div id="account-form-container">
+					<!--form method="post" id="account-form" class="form-horizontal well span6"-->
+						<p id="sub1" class="subheading">
+							<h1>Sign Up</h1></p>
+						<fieldset>
+							<div id="email-cg" class="control-group">
+								<label for="email-tf" class="control-label">Email</label>
+								<div class="controls">
+									<input id="email-tf" type="text" name="email" class="input-xlarge" placeholder="email">
+								</div>
+							</div>
+							<div id="pass-cg" class="control-group">
+								<label for="pass-tf" class="control-label">Password</label>
+								<div class="controls">
+									<input id="pass-tf" type="password" name="pass" value="" class="input-xlarge" placeholder="password">
+								</div>
+							</div>
+							<div id="terms-cg" class="control-group">
+								<label for="terms-cg" class="control-label">Terms and Conditions</label>
+								<div class="controls">By signing up, you agree to abide by our terms and conditions.</div>
+							</div>
+							<div class="form-actions">
+				            <a class="btn btn-primary btn-large" type="submit" id="btn-login" href="#">Submit</a>
+							</div>
+						</fieldset>
+						
+					<!--/form-->
+				</div>
+				<!-- display form errors in a custom modal window //-->
+				<div class="modal-form-errors modal hide fade">
+					<div class="modal-header">
+						<button data-dismiss="modal" class="close">
+							x
+						</button>
+						<h3>Whoops!</h3>
+					</div>
+					<div class="modal-body">
+						<p class="subheading">
+							It looks like there was a problem.
+						</p>
+						<ul></ul>
+					</div>
+					<div class="modal-footer">
+						<button data-dismiss="modal" class="btn btn-warning">
+							OK
+						</button>
+					</div>
+				</div>
+				<script src="/vendor/jquery.min.js"></script>
+				<script src="/vendor/jquery.form.js"></script>
+				<script src="/vendor/bootstrap-modal.js"></script>
+				<script src="/vendor/bootstrap-transition.js"></script>
+				<script src="/js/form-validators/accountValidator.js"></script>
+				<div class="modal-alert modal hide fade">
+					<div class="modal-header">
+						<button data-dismiss="modal" class="close">
+							x
+						</button>
+						<h3></h3>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button data-dismiss="modal" id="ok" class="btn btn-warning">
+							OK
+						</button>
+					</div>
+				</div>
+				<script src="/js/views/signup.js"></script>
 			</div>
-
 		</div>
 
 		<div class="bs-docs-social">
