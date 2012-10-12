@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
-	<head>
+	<head>    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js"></script>
 		<!--fbBlue:#3B5998 -->
 		<!--bootstrapBlue:#3CB9C6 -->
 		<!--bootstrapTeal:#003f4d-->
@@ -12,7 +14,7 @@
 		<!--link href="css/bootstrap.css" rel="stylesheet"-->
 		<style type="text/css">
 			body {
-				padding-top: 50px;
+				padding-top: 0px;
 				padding-bottom: 0px;
 			}
 		</style>
@@ -22,29 +24,100 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
-		<link href="css/bootstrap2.min.css" type="text/css" rel="stylesheet" id="stylesheet">
+		<link href="css/bootstrap10.min.css" type="text/css" rel="stylesheet" id="stylesheet">
 	</head>
 	<body>
-		<div id="navbar" class="navbar navbar-fixed-top">
+		<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a><a class="brand" href="index.html">ConnectWithContractors</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+							<li class="active">
+								<a href="#"><i class="icon-home"></i>Home</a>
+							</li>
+							<li>
+								<a href="#about"><i class="icon-file"></i>About</a>
+							</li>
+							<li>
+								<a href="http://hometract.blogspot.com"><i class="icon-pencil"></i>Blog</a>
+							</li>
+							<li>
+								<a href="#contact"><i class="icon-envelope"></i>Contact</a>
+							</li>
+						    </ul>
+				<ul class="nav pull-right">
+					<li><a href="/signup">Sign Up</a></li>
+                  	<li class="divider-vertical"></li>
+					<li class="dropdown" id="dropdown">
+						<a class="dropdown-toggle" href="#dropdown" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+						<div class="dropdown-menu show" style="padding: 15px; padding-bottom: 0px;">
+							<form method="post" action="login" accept-charset="UTF-8">
+								<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+								<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+								<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+								<label class="string optional" for="user_remember_me"> Remember me</label>
+								<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+								<label style="text-align:center;margin-top:5px">or</label>
+                                <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+								<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		<!--/.container-fluid -->
+	</div>
+	<!--/.navbar-inner -->
+</div>
+<!--/.navbar -->
+		<div id="navbar" class="navbar nav hide">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#">ConnectWithContractors</a>
-					<!--input type="image" onclick="location.href='index.html'" class="brand" src="img/logo.gif" name="image" width="212" height="84"-->
-					<ul class="nav">
-						<li class="active">
-							<a href="index.html">Home</a>
-						</li>
-						<li>
-							<a href="about.html">About Us</a>
-						</li>
-						<li>
-							<a href="mailto:connectwithcontractors@gmail.com">Get In Touch</a>
-						</li>
-						<!--li>
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+						<a class="brand" href="index.html">ConnectWithContractors</a>
 
-						<!--fb:login-button><a href="#contact">Login/Signup</a></fb:login-button-->
-						<!--/li-->
-					</ul>
+						<div class="nav-collapse collapse">
+							<ul class="nav">
+							<li class="active">
+								<a href="#"><i class="icon-home icon-white"></i>Home</a>
+							</li>
+							<li>
+								<a href="#about"><i class="icon-info-sign icon-white"></i>About</a>
+							</li>
+							<li>
+								<a href="http://hometract.blogspot.com"><i class="icon-pencil icon-white"></i>Blog</a>
+							</li>
+							<li>
+								<a href="#contact"><i class="icon-envelope icon-white"></i>Contact</a>
+							</li>
+						    </ul>
+							<div class="pull-right">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="/user/preferences"><i class="icon-cog"></i> Preferences</a>
+											</li>
+											<li>
+												<a href="/help/support"><i class="icon-envelope"></i> Contact Support</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="/auth/logout"><i class="icon-off"></i> Logout</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -55,15 +128,17 @@
 					A sleek and intuitive app ecosystem for hiring, managing, and being a contractor.
 				</p>
 				<p>
-					<div id="login-container">	
-							<input class="span2 required" type="text" placeholder="Email" name="user" id="user-tf">
-				            <input class="span2 required" type="password" placeholder="Password" name="pass" id="pass-tf">
-				            <a class="btn btn-primary btn-large" type="submit" id="btn-login" href="#">Login</a>
-				            <label id="remember-me" style="position:absolute;top:235px;right:558px;border:0;" class="checkbox">Remember Me<input type="checkbox" checked="checked"></label>		
-							<div class="clear-fix"></div>
-							<div class="btm-links">
-								<a href="#" id="forgot-password">Forgot Your Password? </a><a href="signup.html" id="create-account">Create An Account</a>
-							</div>
+					<div id="login-container">
+						<input class="span2 required" type="text" placeholder="Email" name="user" id="user-tf">
+						<input class="span2 required" type="password" placeholder="Password" name="pass" id="pass-tf">
+						<a class="btn btn-primary btn-large" type="submit" id="btn-login" href="#">Login</a>
+						<label id="remember-me" style="position:absolute;top:235px;right:558px;border:0;" class="checkbox">Remember Me
+							<input type="checkbox" checked="checked">
+						</label>
+						<div class="clear-fix"></div>
+						<div class="btm-links">
+							<a href="#" id="forgot-password">Forgot Your Password? </a><a href="signup.html" id="create-account">Create An Account</a>
+						</div>
 					</div>
 					<div class="modal-alert modal hide fade">
 						<div class="modal-header">
@@ -117,19 +192,19 @@
 					<div class="span4">
 						<h2>Homeowners</h2>
 						<p>
-							<a class="btn btn-primary btn-large" href="#">Post Jobs</a>
+							<a class="btn btn-primary btn-large" href="homeowners.html">Post Jobs</a>
 						</p>
 					</div>
 					<div class="span4">
 						<h2>Contractors</h2>
 						<p>
-							<a class="btn btn-primary btn-large" href="#">View Jobs</a>
+							<a class="btn btn-primary btn-large" href="contractors.html">View Jobs</a>
 						</p>
 					</div>
 					<div class="span4">
 						<h2>Managers</h2>
 						<p>
-							<a class="btn btn-primary btn-large" href="#">Build Crew</a>
+							<a class="btn btn-primary btn-large" href="managers.html">Build Crew</a>
 						</p>
 					</div>
 				</div>

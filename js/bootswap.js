@@ -1,6 +1,5 @@
 document.onkeydown = TrapKey;
-var globallyTrackedStyleNum = 1;
-
+var globallyTrackedStyleNum = 10;
 function TrapKey(e) {
 	var key = (e) ? e.which : event.keyCode;
 	if (key == 39)
@@ -9,31 +8,23 @@ function TrapKey(e) {
 	    changeNav();	
 	return true;
 }
-
+function changeNav() {
+	var currentNavCssString = document.getElementById("navbar").className;
+	if(currentNavCssString=="navbar navbar-fixed-top")
+	document.getElementById("navbar").className = "navbar navbar-fixed-top navbar-inverse";
+	else if(currentNavCssString="navbar navbar-fixed-top navbar-inverse")
+	document.getElementById("navbar").className = "navbar navbar-fixed-top";
+}
 function changeStyle() {
-	var currentReportedCssFileUriString = document.getElementById('stylesheet').href;
-	//alert("value of current reported css file uri string on entering funcion changeStyle(): " + currentReportedCssFileUriString);
-	var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 9, currentReportedCssFileUriString.length - 8);
-	//alert("value of current reported style number PRIOR to check if matching globally tracked style number : " + currentReportedStyleNum);
-	//alert("value of globally tracked style number PRIOR to check that current reported style number is consistent with it : " + globallyTrackedStyleNum);
-	var oldBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
-	if (!(globallyTrackedStyleNum == currentReportedStyleNum)) {
-		//alert("Made it into block of if(!(globallyTrackedStyleNum==currentReportedStyleNum))");
-		currentReportedStyleNum = globallyTrackedStyleNum;
+	var currentReportedCssFileUriString = document.getElementById('bootmin').href;
+	var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
+    var oldBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
+	if (currentReportedStyleNum == 13) {
+		currentReportedStyleNum = 9;
 	}
-	//alert("value of current reported style number AFTER check if matching globally tracked style number : " + currentReportedStyleNum);
-	//alert("value of globally tracked style number AFTER check that current reported style number is consistent with it : " + globallyTrackedStyleNum);
-	var oldStyleNum = currentReportedStyleNum;
-	if (currentReportedStyleNum == 6) {
-		//alert("made it into block that resets style num when reached max of: "+currentReportedStyleNum);
-		currentReportedStyleNum = 0;
-		globallyTrackedStyleNum = 0;
-	}
-	currentReportedStyleNum++;
-	globallyTrackedStyleNum++;
-	//alert("oldStyleNum= "+oldStyleNum+" : currentReportedStyleNum= "+currentReportedStyleNum);
-	
-	var newBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
+	var newStyleNum = currentReportedStyleNum;
+	newStyleNum++;
+	var newBootstrapStringHolder = "bootstrap"+newStyleNum;
 	var newCssFileUriString = currentReportedCssFileUriString.replace(oldBootstrapStringHolder,newBootstrapStringHolder);
-	document.getElementById('stylesheet').href = newCssFileUriString;
+	document.getElementById('bootmin').href = newCssFileUriString;
 }
