@@ -1,0 +1,41 @@
+{
+	"firstName": "Wayne",
+	"lastName": "Matthews",
+	"email":"wayne@tpbhomes.com",
+	"messages":
+	[
+		{"type": "unread","list":[{},{}]},
+		{"type": "read","list":[{},{}]},
+		{"type": "sent","list":[{},{}]}
+	],
+	"projects":
+	[
+		{"type": "recurring","list":[{},{}]},
+		{"type": "maintenance","list":[{},{}]},
+		{"type": "oneTime","list":[{},{}]}
+	],
+	"comments":
+	[
+		{"type": "unread","list":[{},{}]},
+		{"type": "read","list":[{},{}]},
+		{"type": "approved","list":[{},{}]}
+	],
+	"bids":
+	[
+		{"type": "submitted","list":[{},{}]},
+		{"type": "recieved","list":[{},{}]},
+		{"type": "accepted","list":[{},{}]}
+	],
+	"crews":
+	[
+		{"type": "companies","list":[{},{}]},
+		{"type": "associates","list":[{},{}]},
+		{"type": "hyperlocal","list":[{},{}]}
+	],
+	"favorites":
+	[
+		{"type": "clients","list":[{},{}]},
+		{"type": "contractors","list":[{},{}]},
+		{"type": "managers","list":[{},{}]}
+	]
+}
