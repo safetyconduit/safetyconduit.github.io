@@ -1,0 +1,160 @@
+
+
+<!--div class="span4">
+					<!--a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a-->
+
+					<!--a href="https://twitter.com/cnwtcontractors" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a-->
+<!--div class="span4">
+				<div class="fb-like" data-href="http://connectwithcontractors.github.com" data-send="true" data-width="450" data-show-faces="true"></div>
+				</div-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		
+		<div id="navbar" class="navbar nav hide">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+						<a class="brand" href="index.html">ConnectWithContractors</a>
+
+						<div class="nav-collapse collapse">
+							<ul class="nav">
+							<li class="active">
+								<a href="#"><i class="icon-home icon-white"></i>Home</a>
+							</li>
+							<li>
+								<a href="#about"><i class="icon-info-sign icon-white"></i>About</a>
+							</li>
+							<li>
+								<a href="http://hometract.blogspot.com"><i class="icon-pencil icon-white"></i>Blog</a>
+							</li>
+							<li>
+								<a href="#contact"><i class="icon-envelope icon-white"></i>Contact</a>
+							</li>
+						    </ul>
+							<div class="pull-right">
+								<ul class="nav pull-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="/user/preferences"><i class="icon-cog"></i> Preferences</a>
+											</li>
+											<li>
+												<a href="/help/support"><i class="icon-envelope"></i> Contact Support</a>
+											</li>
+											<li class="divider"></li>
+											<li>
+												<a href="/auth/logout"><i class="icon-off"></i> Logout</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+				<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a><a class="brand" href="index.html">ConnectWithContractors</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active">
+								<a href="#"><i class="icon-home"></i>Home</a>
+							</li>
+							<li>
+								<a href="#about"><i class="icon-file"></i>About</a>
+							</li>
+							<li>
+								<a href="http://hometract.blogspot.com"><i class="icon-pencil"></i>Blog</a>
+							</li>
+							<li>
+								<a href="#contact"><i class="icon-envelope"></i>Contact</a>
+							</li>
+						</ul>
+						<ul class="nav pull-right">
+							<li>
+								<a href="signup.html">Sign Up</a>
+							</li>
+							<li class="divider-vertical"></li>
+							<li class="dropdown" id="dropdown">
+								<a class="dropdown-toggle" href="#dropdown" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+								<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+									<form method="post" action="login" accept-charset="UTF-8">
+										<input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+										<input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+										<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+										<label class="string optional" for="user_remember_me"> Remember me</label>
+										<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+										<label style="text-align:center;margin-top:5px">or</label>
+										<input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
+										<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
+									</form>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+				<!--fbBlue:#3B5998 -->
+		<!--bootstrapBlue:#3CB9C6 -->
+		<!--bootstrapTeal:#003f4d-->
+				<!--link href="css/bootstrap-responsive.css" rel="stylesheet"-->
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Trap Key+Dynamically Changing Stylesheets</title>
+		<script type="text/javascript">
+			document.onkeydown = TrapKey;
+			var globallyTrackedStyleNum = 1;
+			
+			function TrapKey(e) {
+				var key = (e) ? e.which : event.keyCode;
+				if (key == 39)
+					changeStyle();
+				return true;
+			}
+
+			function changeStyle() {
+				var currentReportedCssFileUriString = document.getElementById('stylesheet').href;
+				alert("value of current reported css file uri string on entering funcion changeStyle(): " + currentReportedCssFileUriString);
+				var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 9, currentReportedCssFileUriString.length - 8);
+				alert("value of current reported style number PRIOR to check if matching globally tracked style number : "+ currentReportedStyleNum);
+				alert("value of globally tracked style number PRIOR to check that current reported style number is consistent with it : "+ globallyTrackedStyleNum);
+				if(!(globallyTrackedStyleNum==currentReportedStyleNum))
+				{
+					alert("Made it into block of if(!(globallyTrackedStyleNum==currentReportedStyleNum))");
+					currentReportedStyleNum=globallyTrackedStyleNum;
+				}
+			    alert("value of current reported style number AFTER to check if matching globally tracked style number : "+ currentReportedStyleNum);
+				alert("value of globally tracked style number AFTER check that current reported style number is consistent with it : "+ globallyTrackedStyleNum);
+				var oldStyleNum=currentReportedStyleNum;
+				if (currentReportedStyleNum == 6)
+				{
+				currentReportedStyleNum = 0;
+				globallyTrackedStyleNum= 0;
+				}
+			    currentReportedStyleNum++;
+				globallyTrackedStyleNum++;
+			   // alert("oldStyleNum= "+oldStyleNum+" : currentReportedStyleNum= "+currentReportedStyleNum);
+				var newCssFileUriString = currentReportedCssFileUriString.replace(oldStyleNum, globallyTrackedStyleNum);
+				//alert(newCssFile);
+				document.getElementById('stylesheet').href = newCssFileUriString;
+			}
+		</script>
+		<link href="css/bootstrap1.min.css" type="text/css" rel="stylesheet" id="stylesheet">
+	</head>
+
+	<body>
+		<p>
+			Press the right arrow to cycle through ConnectWithContractors.com's custom bootstrap themes, our gift to the web dev community.
+		</p>
+	</body>
+</html>
+
