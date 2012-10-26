@@ -13,9 +13,17 @@ function TrapKey(e){
 	if(key==37){changeIconColors();}
 	else if(key==38){
 		changeNavbar();
-		
 	}
-	else if(key==39){changeStyle();}
+	else if(key==39){
+		changeStyle();
+		//alert("styleNum: "+globallyTrackedStyleNum);
+		//alert("indexOF: "+document.getElementById("navbar").className.indexOf("navbar-inverse"));
+		if(globallyTrackedStyleNum==11&&document.getElementById("navbar").className.indexOf("navbar-inverse")!=-1)
+		{
+			//alert("tada");
+			changeNavbar();
+		}
+	}
 	else if(key==40){changeInnerStyles();showMain();}
 	showInput(key);
 	return true;
@@ -51,7 +59,7 @@ function BuildNav(){
 	           			$("<li>", {html:$("<a>",{html:"Sign In",id:"signInButton",href:"javascript:ToggleSignInDropdown();"}).prepend($("<i>",{class:"icon-user"}))}))
 	           	}),
 	           	$("<div>",{class:"pull-right hide",html:
-	           		$("<ul>",{class:"nav pull-right",id:"helloUsernamePullRight"}).append(
+	           		$("<ul>",{class:"pull-right navbar nav navbar-inverse",id:"helloUsernamePullRight"}).append(
 	           			$("<li>",{class:"divider-vertical"}),
 	           			$("<li>", {html:$("<a>",{html:"Hello ",class:"btn-link",href:"signup.html"}).append($("<a>",{class:"btn-link",href:"javascript:ToggleUserProfileDropdown()",id:"usernameButton"}))}))
 	           	})
@@ -133,24 +141,42 @@ function changeNavs() {
 	}
 }
 function changeNavbar() {
-	if(debug)alert("made it to changeNavber");
+	if(debug)alert("made it to changeNavbar");
 	var navbar = document.getElementById("navbar");
 	if(debug)alert(navbar);
 		if (navbar.className.indexOf("navbar-inverse") == -1) {
 			var currentReportedCssFileUriString = document.getElementById('bootmin').href;
 			var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
+		    
+			//alert("navbar-inverse.indexOf did equal -1");
 		    if(currentReportedStyleNum!=11){
+		    	//alert("currentlyReportedStyleNum did not equal 11");
 		    	//alert(navbar.className);
 				navbar.className = navbar.className + " navbar-inverse";//		document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className+" navbar-inverse";	
 		    	//alert(navbar.className);
 		    }else{
+		    	
+		    	//alert("currentlyReportedStyleNum did equal 11");
 		    	//alert(navbar.className);
-		    	navbar.className = navbar.className + " navbar-inverse";
-		    	//navbar.className = navbar.className.substr(0, navbar.className.length - 14)
+		    	if(navbar.className.indexOf("navbar-inverse")==-1)
+		    	{
+		    		//navbar.className = navbar.className + " navbar-inverse";
+		    		
+		    		//alert(document.getElementById("helloUsernamePullRight").className);
+		    		//document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className + " navbar-inverse";
+		    	    //alert(document.getElementById("helloUsernamePullRight").className);
+		    		
+		    	}else{
+		    		//alert("here");
+		    		//navbar.className = navbar.className.substr(0, navbar.className.length - 14);
+		    	}
 		    	//alert(navbar.className);
 		    }
 		} 
-		else {navbar.className = navbar.className.substr(0, navbar.className.length - 14);}
+		else {
+			//alert("navbar-inverse.indexOf did not equal -1");
+			navbar.className = navbar.className.substr(0, navbar.className.length - 14);
+		}
 }
 function changeStyle() {
 	if(debug)alert("made it to changeStyle");
@@ -170,9 +196,16 @@ function changeStyle() {
 		globallyTrackedStyleNum = 9;
 	}
 	currentReportedStyleNum++;
-	globallyTrackedStyleNum++;	
-	//if(currentReportedStyleNum==11&&$("navbar").className.indexOf("navbar-inverse")>-1){
+	globallyTrackedStyleNum++;
+	//var theme11 = 	
+	//if (currentReportedStyleNum==11){
+		//alert("currentReportedStyleNum indeed = 11");
+	   // if($("navbar").className.indexOf("navbar-inverse")!=-1){
+		//alert($("navbar").className);
 		//$("navbar").className = $("navbar").className.substr(0, $("navbar").className.length - 14);
+		//alert($("navbar").className);
+		//}
+		//}
 	//}
 	
 	var newBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
@@ -216,10 +249,12 @@ function login(){
 	//debug=true;
 	if (debug)alert(document.getElementById("username").value);
 	if (debug)alert(document.getElementById("password").value);
-	if ((document.getElementById("username").value=="test"||document.getElementById("username").value=="testHomeowner"||document.getElementById("username").value=="testContractor"||document.getElementById("username").value=="testManager") && (document.getElementById("password").value == "pass")) {
+	if ((document.getElementById("username").value=="test"||document.getElementById("username").value=="Wayne"||document.getElementById("username").value=="wayne"||document.getElementById("username").value=="testHomeowner"||document.getElementById("username").value=="testContractor"||document.getElementById("username").value=="testManager") && (document.getElementById("password").value == "pass")) {
 		ToggleSignInDropdown();
 		ToggleTopNavPullRight();
 		if(document.getElementById("username").value=="test"){}
+		else if(document.getElementById("username").value=="Wayne"){}
+		else if(document.getElementById("username").value=="wayne"){}
 		else if(document.getElementById("username").value=="testHomeowner"){showHomeowner()}
 		else if(document.getElementById("username").value=="testContractor"){showContractor()}
 		else if(document.getElementById("username").value=="testManager"){showManager()}
