@@ -34,62 +34,24 @@
 	</head>
 
 	<body>
+<div class="pull-right" style="width:1080px; padding: 8px 0;">
+		<ul class="nav nav-list"> 
+		  <li class="nav-header">Messages</li>        
+		  <div id="Messages"></div>
+		</ul>
+	</div>
 
-		<div id="navbar" class="navbar nav ">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-						<a class="brand" href="index.html">ConnectWithContractors</a>
-
-						<div class="nav-collapse collapse">
-							<ul class="nav">
-							<li>
-								<a href="index.html"><i class="icon-home icon-white"></i>Home</a>
-							</li>
-							<li>
-								<a href="about.html"><i class="icon-info-sign icon-white"></i>About</a>
-							</li>
-							<li>
-								<a href="http://hometract.blogspot.com"><i class="icon-pencil icon-white"></i>Blog</a>
-							</li>
-							<li>
-								<a href="mailto:connectwithcontractors@gmail.com"><i class="icon-envelope icon-white"></i>Contact</a>
-							</li>
-						    </ul>
-							<div class="pull-right">
-								<ul class="nav pull-right">
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li>
-												<a href="/user/preferences"><i class="icon-cog"></i> Preferences</a>
-											</li>
-											<li>
-												<a href="/help/support"><i class="icon-envelope"></i> Contact Support</a>
-											</li>
-											<li class="divider"></li>
-											<li>
-												<a href="/auth/logout"><i class="icon-off"></i> Logout</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
 
 		<div class="sidebar-nav">
-	<div class="well" style="width:300px; padding: 8px 0;">
+	<div class="well" style="width:200px; padding: 8px 0;">
 		<ul class="nav nav-list"> 
 		  <li class="nav-header">Homeowners Menu</li>        
-		  <li class="active"><a href="index"><i class="icon-signal"></i> Home Maintenance Dashboard</a></li>
-          <li><a href="#"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+		  <li><a href="index"><i class="icon-signal"></i>Dashboard</a></li>
+          <li class="active"><a href="javascript:showMessages()"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
           <li><a href="#"><i class="icon-comment"></i> Comments <span class="badge badge-info">10</span></a></li>
           <li><a href="#"><i class="icon-folder-open"></i> My Projects <span class="badge badge-info">10</span></a></li>
           <li><a href="#"><i class="icon-pencil"></i> Bids Received <span class="badge badge-info">10</span></a></li>
-		  <li><a href="#"><i class="icon-heart"></i> Favorited Contractor</a></li>
+		  <li><a href="#"><i class="icon-heart"></i> Favorites</a></li>
           <li class="divider"></li>
           
 		  <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
@@ -98,22 +60,14 @@
 		  <li><a href="#"><i class="icon-share"></i> Logout</a></li>
 		</ul>
 	</div>
+	
 </div>
+
+
 			
 			<hr>
 
-		<div class="footer">
-					<p>
-						<div class="row">
-							<div class="span4">
-								&nbsp;&copy;&nbsp;ConnectWithContractors 2012
-							</div>
-							<div class="span4">
-								<label id="css"></label>
-							</div
-						</div>
-					</p>
-		</div>
+
 
 		
 		<!-- /container -->
@@ -121,7 +75,7 @@
 		<!-- Le javascript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="../assets/js/jquery.js"></script>
+		<script src="js/jquery.js"></script>
 		<script src="../assets/js/bootstrap-transition.js"></script>
 		<script src="../assets/js/bootstrap-alert.js"></script>
 		<script src="../assets/js/bootstrap-modal.js"></script>
@@ -144,6 +98,52 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Project -->
 		<script src="js/application.js"></script>
-		<script src="js/bootswap.js"></script>
+		<script src="js/nuuton.js"></script>
+		<script>
+		$.get("wayne.json",
+		function(data){
+			tabulaLinda(data);
+			}, "json");
+			
+		function tabulaLinda(json){
+			    var well = $("<div>").addClass("well");
+				var table = $("<div>");
+				for(i=0; i<json.messages.length; i++){
+					var row = $("<div>").addClass('row').text(json.messages[i].type).css({marginLeft: '1px'});//(json.messages.type(unread)[i].from);
+					table.append(row);
+					for(j=0;j<json.messages[i].list.length;j++){
+						var row = $("<div>").addClass('row').text(json.messages[i].list[j].from +' | '+json.messages[i].list[j].subject+' | '+json.messages[i].list[j].body).css({marginLeft: '2px'});//(json.messages.type(unread)[i].from);
+						table.append(row);
+					}
+    				
+					//alert(i);
+				}
+				well.append(table);
+
+        $('#Messages').append(well);
+		}
+/* {
+	"firstName": "Wayne",
+	"lastName": "Matthews",
+	"email":"wayne@tpbhomes.com",
+	"messages":
+	[
+		{"type": "unread","list":[
+			{
+				"from":"allison.eponine.mobley@gmail.com",
+				"subject":"test subject",
+				"body":"hello wayne"
+			},
+			{
+				"from":"connectwithcontractors@gmail.com",
+				"subject":"2nd test subject",
+				"body":"Awesome"
+			}
+		]},
+		{"type": "read","list":[{},{}]},
+		{"type": "sent","list":[{},{}]}
+	],
+ */
+		</script>
 	</body>
 </html>

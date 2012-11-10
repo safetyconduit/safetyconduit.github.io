@@ -9,18 +9,14 @@ $(document).ready(function() {
 });
 function TrapKey(e){
 	var key = (e) ? e.which : event.keyCode;
-	if(debug)alert(key);
 	if(key==37){changeIconColors();}
 	else if(key==38){
 		changeNavbar();
 	}
 	else if(key==39){
 		changeStyle();
-		//alert("styleNum: "+globallyTrackedStyleNum);
-		//alert("indexOF: "+document.getElementById("navbar").className.indexOf("navbar-inverse"));
 		if(globallyTrackedStyleNum==11&&document.getElementById("navbar").className.indexOf("navbar-inverse")!=-1)
 		{
-			//alert("tada");
 			changeNavbar();
 		}
 	}
@@ -113,7 +109,6 @@ function showMain(){
 	document.getElementById("mainLabel").innerHTML="Main Theme: "+document.getElementById("main").className;
 }
 function showInput(input){
-	if(debug)alert("made it to show input");
 	if(input!=null){
 		document.getElementById("inputLabel").innerHTML="Last Input: "+input;
 	}
@@ -122,8 +117,6 @@ function showInput(input){
 	}
 }
 function showAbout(){
-	//debug=true;
-	if(debug){alert("made it to show about");}
     ToggleToggables();
 }
 function changeIconColors() {
@@ -141,56 +134,38 @@ function changeNavs() {
 	}
 }
 function changeNavbar() {
-	if(debug)alert("made it to changeNavbar");
 	var navbar = document.getElementById("navbar");
-	if(debug)alert(navbar);
 		if (navbar.className.indexOf("navbar-inverse") == -1) {
 			var currentReportedCssFileUriString = document.getElementById('bootmin').href;
 			var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
-		    
-			//alert("navbar-inverse.indexOf did equal -1");
 		    if(currentReportedStyleNum!=11){
-		    	//alert("currentlyReportedStyleNum did not equal 11");
-		    	//alert(navbar.className);
 				navbar.className = navbar.className + " navbar-inverse";//		document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className+" navbar-inverse";	
-		    	//alert(navbar.className);
 		    }else{
-		    	
-		    	//alert("currentlyReportedStyleNum did equal 11");
-		    	//alert(navbar.className);
 		    	if(navbar.className.indexOf("navbar-inverse")==-1)
 		    	{
 		    		//navbar.className = navbar.className + " navbar-inverse";
 		    		
-		    		//alert(document.getElementById("helloUsernamePullRight").className);
 		    		//document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className + " navbar-inverse";
-		    	    //alert(document.getElementById("helloUsernamePullRight").className);
+
 		    		
 		    	}else{
-		    		//alert("here");
 		    		//navbar.className = navbar.className.substr(0, navbar.className.length - 14);
 		    	}
-		    	//alert(navbar.className);
+
 		    }
 		} 
 		else {
-			//alert("navbar-inverse.indexOf did not equal -1");
 			navbar.className = navbar.className.substr(0, navbar.className.length - 14);
 		}
 }
 function changeStyle() {
-	if(debug)alert("made it to changeStyle");
 	var currentReportedCssFileUriString = document.getElementById('bootmin').href;
-	if(debug)alert(document.getElementById('bootmin').href);
 	var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
-    if(debug)alert(currentReportedStyleNum);
     var oldBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
-   if(debug) alert(oldBootstrapStringHolder);
 	if (!(globallyTrackedStyleNum == currentReportedStyleNum)) {
 		currentReportedStyleNum = globallyTrackedStyleNum;
 	}
 	var oldStyleNum = currentReportedStyleNum;
-	if(debug)alert(oldStyleNum);
 	if (currentReportedStyleNum == 22) {
 		currentReportedStyleNum = 9;
 		globallyTrackedStyleNum = 9;
@@ -211,7 +186,6 @@ function changeStyle() {
 	var newBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
 	var newCssFileUriString = currentReportedCssFileUriString.replace(oldBootstrapStringHolder,newBootstrapStringHolder);
 	document.getElementById('bootmin').href = newCssFileUriString;
-	if(debug)alert(document.getElementById('bootmin').href);
 }
 
 
@@ -230,25 +204,18 @@ function ToggleSignInDropdown(){
 function ToggleToggables(){
 	var hideables = document.getElementsByClassName("toggable");
 	for (var i = 0; i < hideables.length; ++i) {
-		//alert(hideables[i].className);
 		
 		if(hideables[i].className.indexOf("hide") == -1){
 			hideables[i].className = hideables[i].className + " hide";
 		}
 		else if(hideables[i].className.indexOf("hide")>-1){
 		hideables[i].className = hideables[i].className.substr(0, hideables[i].className.length - 4);}
-		//alert(hideables[i].className);
 	}
 }
 function enableHardCodedLogin(){
-	//alert("made it to hcl");
-
 }
 
 function login(){
-	//debug=true;
-	if (debug)alert(document.getElementById("username").value);
-	if (debug)alert(document.getElementById("password").value);
 	if ((document.getElementById("username").value=="test"||document.getElementById("username").value=="Wayne"||document.getElementById("username").value=="wayne"||document.getElementById("username").value=="testHomeowner"||document.getElementById("username").value=="testContractor"||document.getElementById("username").value=="testManager") && (document.getElementById("password").value == "pass")) {
 		ToggleSignInDropdown();
 		ToggleTopNavPullRight();
@@ -286,7 +253,6 @@ function ToggleElementsOfClassXOnPropertyY(x,y){
 }
 function changeInnerStyles(){
 	var intraBodyElements=document.getElementsByName("intraBodyElement");
-	//alert(intraBodyElements.length);
 	
 	for(var i=0;i<intraBodyElements.length;++i)
 	{
@@ -312,3 +278,8 @@ function changeInnerStyles(){
      // alert('username or password not valid');
   // }
 //});
+
+function showMessages(){
+	
+}
+

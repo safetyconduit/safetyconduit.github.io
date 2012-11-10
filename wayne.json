@@ -4,7 +4,18 @@
 	"email":"wayne@tpbhomes.com",
 	"messages":
 	[
-		{"type": "unread","list":[{},{}]},
+		{"type": "unread","list":[
+			{
+				"from":"allison.eponine.mobley@gmail.com",
+				"subject":"test subject",
+				"body":"hello wayne"
+			},
+			{
+				"from":"connectwithcontractors@gmail.com",
+				"subject":"2nd test subject",
+				"body":"Awesome"
+			}
+		]},
 		{"type": "read","list":[{},{}]},
 		{"type": "sent","list":[{},{}]}
 	],
