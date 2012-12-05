@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ConnectWithContractors</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Social Hiring For Contractors">
+		<meta name="author" content="A.E.M. CTO-CWC">
+		<link href="css/bootstrap10.min.css" rel="stylesheet" id="style">
+		 <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+
+    <!--[if lt IE 9]>
+
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+    <![endif]-->
+
+		<style type="text/css">
+			body {
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home toggable" >
+			<div class="jumbotron masthead" id="main" name="intraBodyElement"><div class="container"><h1 style="font-size:70px">ConnectWithContractors</h1><p>App for hiring, managing, and being a contractor.</p><p><div id="login-container">
+			<input class="span2 required" style="width:453px;height:44px" type="text" placeholder="Email" name="user" id="user-tf">
+			<input class="span2 required" style="width:453px;height:44px" type="password" placeholder="Password" name="pass" id="pass-tf">
+			<a class="btn btn-primary btn-block btn-large"type="submit" id="btn-login" href="">SignUp / SignIn</a><div class="clear-fix"></div>
+			<div class="btm-links"><a href="#" id="forgot-password">Forgot Your Password? </a></div></div>
+			<div class="modal-alert modal hide fade"><div class="modal-header"><button data-dismiss="modal" class="close">x</button><h3></h3></div>
+			<div class="modal-body"><p></p></div><div class="modal-footer"><button data-dismiss="modal" id="ok" class="btn btn-warning">OK</button></div></div>
+			<div id="get-credentials" class="modal-single-input modal hide fade"><div class="modal-header"><button data-dismiss="modal" class="close">x</button><h3>Retrieve Password</h3></div>
+			<div class="modal-body"><form method="post" id="get-credentials-form" class="well span5"><p>Please enter the email address associated with your account</p>
+			<input type="text" name="email" id="email-tf" class="span5 required"><button type="submit" id="submit" class="btn btn-primary">Submit</button>
+			<button data-dismiss="modal" id="cancel" class="btn">Cancel</button><div class="alert alert-error hide"></div><button data-dismiss="alert" class="close"></button></form></div><div class="modal-footer"></div></div></p>
+			<div class="row-fluid"><div class="span4"><h2>Homeowners</h2><p><a class="btn btn-primary btn-large" href="homeowners.html">Post Jobs</a></p></div>
+			<div class="span4"><h2>Contractors</h2><p><a class="btn btn-primary btn-large" href="contractors.html">View Jobs</a></p></div>
+			<div class="span4"><h2>Managers</h2><p><a class="btn btn-primary btn-large" href="managers.html">Build Crew</a></p></div></div></div></div></div>
+		<div class="about toggable hide">
+			<div class="jumbotron masthead" style="padding:30px 0 42px" id="about" name="intraBodyElement">
+				<div class="container">
+					<h1 style="font-size:40px;text-align:left"><i class="icon-home icon-white" style="margin:20px"></i>Homeowners<i class="icon-home icon-white" style="margin:20px"></i></h1>
+					<h2 style="text-align:left">Looking for the right contractor @ the right price?</h2>
+					<p style="font-size:20px;text-align:left">
+						You get a competitive price and know exactly whom you are hiring.  Its that simple!
+					</p><hr>
+					<h1 style="font-size:40px;text-align:left"><i class="icon-wrench icon-white" style="margin:20px"></i>Contractors<i class="icon-wrench icon-white" style="margin:20px"></i></h1>
+					<h2 style="text-align:left" >Looking to get jobs without buying ads?</h2>
+					<p style="font-size:20px;text-align:left">
+						Get a text anytime a job comes up in your area matching your skill set.  Free leads!
+					</p><hr>
+					<h1 style="font-size:40px;text-align:left"><i class="icon-briefcase icon-white" style="margin:20px"></i>Managers<i class="icon-briefcase icon-white" style="margin:20px"></i></h1>
+					<h2 style="text-align:left">Looking to mediate between homeowners and contractors?</h2>
+					<p style="font-size:20px;text-align:left">
+						Apply your expertise collecting scope of work and subcontracting it out.  Grow your biz!
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="app toggable hide">
+			<div class="sidebar-nav">
+				<div class="well" style="width:200px; padding: 8px 0;">
+					<ul class="nav nav-list">      
+					  <li><a href="index"><i class="icon-signal"></i>Dashboard</a></li>
+			          <li class="active"><a href="javascript:show('messages')"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+			          <li><a href="#"><i class="icon-comment"></i> Comments <span class="badge badge-info">10</span></a></li>
+			          <li><a href="#"><i class="icon-folder-open"></i> My Projects <span class="badge badge-info">10</span></a></li>
+			          <li><a href="#"><i class="icon-pencil"></i> Bids Received <span class="badge badge-info">10</span></a></li>
+					  <li><a href="#"><i class="icon-heart"></i> Favorites</a></li>
+			          <li class="divider"></li>
+			          
+					  <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+					  <li><a href="#"><i class="icon-wrench"></i> Edit Profile</a></li>
+					  <li><a href="#"><i class="icon-th-list"></i> Settings</a></li>
+					  <li><a href="#"><i class="icon-share"></i> Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			
+
+	</div>
+		<div class="bs-docs-social">
+			<div class="container"><ul class="bs-docs-social-buttons"><li><div class="fb-like" data-href="http://connectwithcontractors.github.com" data-send="true" data-width="100" data-show-faces="false"></div></li><li class="follow-btn"><a href="https://twitter.com/cnwtcontractors" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @cnwtcontractors</a></li><li class="tweet-btn"><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://twitter.com/cnwtcontractors" data-count="horizontal" data-via="cnwtcontractors" data-related="mdo:Creator of ConnectWithContractors">Tweet</a></li></ul></div></div>
+		<script src="js/jquery.js"></script>
+		<script src="js/nuuton.js"></script>
+		<div id="fb-root"></div>
+		<script>
+			! function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (!d.getElementById(id)) {
+					js = d.createElement(s);
+					js.id = id;
+					js.src = "https://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}
+			}(document, "script", "twitter-wjs");
+			( function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id))
+						return;
+					js = d.createElement(s);
+					js.id = id;
+					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=266894066765245";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId : 266894066765245,
+					channelUrl : connectwithcontractors.github.com / channel.html,
+					status : true,
+					cookie : true,
+					xfbml : true
+				});
+			};
+			( function(d) {
+					var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+					if (d.getElementById(id)) {
+						return;
+					}
+					js = d.createElement('script');
+					js.id = id;
+					js.async = true;
+					js.src = "//connect.facebook.net/en_US/all.js";
+					ref.parentNode.insertBefore(js, ref);
+				}(document));
+		</script>
+	</body>
+</html>

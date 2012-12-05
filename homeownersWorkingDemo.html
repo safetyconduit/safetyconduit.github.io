@@ -8,6 +8,7 @@
 		<meta name="author" content="">
 		<!-- Le styles -->
 		<link href="css/bootstrap10.min.css" rel="stylesheet" id="bootmin">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
 		<style type="text/css">
 			body {
 				padding-top: 0px;
@@ -34,14 +35,20 @@
 	</head>
 
 	<body>
-
+<div class="pull-right" style="width:1080px; padding: 8px 0;">
+		<ul class="nav nav-list"> 
+		  <li class="nav-header">Messages</li>        
+		  <div id="Messages"></div>
+		</ul>
+	</div>
 
 
 		<div class="sidebar-nav">
 	<div class="well" style="width:200px; padding: 8px 0;">
-		<ul class="nav nav-list">       
+		<ul class="nav nav-list"> 
+		  <li class="nav-header">Homeowners Menu</li>        
 		  <li><a href="index"><i class="icon-signal"></i>Dashboard</a></li>
-          <li class="active"><a href="javascript:show('messages')"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+          <li class="active"><a href="javascript:showMessages()"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
           <li><a href="#"><i class="icon-comment"></i> Comments <span class="badge badge-info">10</span></a></li>
           <li><a href="#"><i class="icon-folder-open"></i> My Projects <span class="badge badge-info">10</span></a></li>
           <li><a href="#"><i class="icon-pencil"></i> Bids Received <span class="badge badge-info">10</span></a></li>
@@ -94,21 +101,12 @@
 		<script src="js/application.js"></script>
 		<script src="js/nuuton.js"></script>
 		<script>
-		show(tableName){
 		$.get("wayne.json",
 		function(data){
-			tabulaLinda(data,'messages');
+			tabulaLinda(data);
 			}, "json");
-		}
-		/*
-		<div class="pull-right" style="width:1080px; padding: 8px 0;">
-		<ul class="nav nav-list"> 
-		  <li class="nav-header" id>Messages</li>        
-		  <div id="messages"></div>
-		</ul>
-	</div>
-			*/
-		function tabulaLinda(json,tableName){
+			
+		function tabulaLinda(json){
 			    var well = $("<div>").addClass("well");
 				var table = $("<div>");
 				for(i=0; i<json.messages.length; i++){
@@ -118,10 +116,12 @@
 						var row = $("<div>").addClass('row').text(json.messages[i].list[j].from +' | '+json.messages[i].list[j].subject+' | '+json.messages[i].list[j].body).css({marginLeft: '2px'});//(json.messages.type(unread)[i].from);
 						table.append(row);
 					}
+    				
+					//alert(i);
 				}
 				well.append(table);
-		var tableQuery ="'#"+tableName+"'"
-        $(tableQuery).append(well);
+
+        $('#Messages').append(well);
 		}
 /* {
 	"firstName": "Wayne",

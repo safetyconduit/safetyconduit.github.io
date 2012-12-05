@@ -1,41 +1,21 @@
-var debug=false;
-var globallyTrackedStyleNum=10;
-document.onkeydown = TrapKey;
-$(document).ready(function() {
-    $(window).load(function() {
-         $('#loader').hide();
-         $('#pagecontent').show();
-    });
-});
-function TrapKey(e){
+var debug=false; 
+
+document.onkeydown = process;
+function process(e){
 	var key = (e) ? e.which : event.keyCode;
 	if(key==37){changeIconColors();}
-	else if(key==38){
-		changeNavbar();
-	}
-	else if(key==39){
-		changeStyle();
-		if(globallyTrackedStyleNum==11&&document.getElementById("navbar").className.indexOf("navbar-inverse")!=-1)
-		{
-			changeNavbar();
-		}
-	}
-	else if(key==40){changeInnerStyles();showMain();}
-	showInput(key);
+	if(key==38){changeNavbar();}
+	if(key==39){changeStyle();if(globallyTrackedStyleNum==11&&document.getElementById("navbar").className.indexOf("navbar-inverse")!=-1){changeNavbar();}}
+	if(key==40){changeInnerStyles();showMain();}
 	return true;
 }
-window.onload(Build());
+
+//window.onload(Build());
 function Build(){
 	BuildNav();
-	//document.getElementById(signInButton).click;
 	BuildSignInDropdown();
 	BuildFooter();
-	if(debug){Debug();}
-	else{
-		showStyle();
-		showMain();
-		showInput();
-	}
+	Debug();
 	enableHardCodedLogin();
 }
 function BuildNav(){
@@ -64,23 +44,36 @@ function BuildNav(){
    	}).prependTo("body") 
 }
 function BuildSignInDropdown(){
-	//$("<div>",{class:"hero-unit hide",id:"signInDropdown",html:
-   		$("<div>",{class:"hero-unit hide",style:"padding:15px;padding-bottom:0px;position:absolute;top:0px;left:80%;z-index:20",id:"signInDropdown",html:	
-           	$("<form>").append(
-           		$("<a>",{html:"x", style:"position:absolute;top:-2%;left:96%",href:"javascript:ToggleSignInDropdown();"}),
-           		$("<div>",{class:""}).append(
-           			$("<input>",{style:"margin-bottom: 5px",class:"input-block-level",type:"text",placeholder:"Username",id:"username",name:"username"}),
-           			$("<input>",{style:"margin-bottom: 5px",class:"input-block-level",type:"password",placeholder:"Password",id:"password",name:"password"})
-           		),
-           		$("<div>",{class:""}).append(
-           			$("<input>",{style:"float: left; margin-right: 10px",type:"checkbox",checked:"true",id:"remember-me",name:"remember-me"}),
-           			$("<label>",{class:"string optional",html:" Remember me"}),
-           			$("<a>",{class:"btn btn-block btn-primary",type:"button",id:"login",html:"Sign In",href:"javascript:login()"})
-           		) 
-	        )
-    	}).appendTo("body")
-   	//})
+	$("<div>",{class:"hero-unit hide",style:"padding:15px;padding-bottom:0px;position:absolute;top:0px;left:80%;z-index:20",id:"signInDropdown",html:	
+       	$("<form>").append(
+       		$("<a>",{html:"x", style:"position:absolute;top:-2%;left:96%",href:"javascript:ToggleSignInDropdown();"}),
+       		$("<div>",{class:""}).append(
+       			$("<input>",{style:"margin-bottom: 5px",class:"input-block-level",type:"text",placeholder:"Username",id:"username",name:"username"}),
+       			$("<input>",{style:"margin-bottom: 5px",class:"input-block-level",type:"password",placeholder:"Password",id:"password",name:"password"})
+       		),
+       		$("<div>",{class:""}).append(
+       			$("<input>",{style:"float: left; margin-right: 10px",type:"checkbox",checked:"true",id:"remember-me",name:"remember-me"}),
+       			$("<label>",{class:"string optional",html:" Remember me"}),
+       			$("<a>",{class:"btn btn-block btn-primary",type:"button",id:"login",html:"Sign In",href:"javascript:login()"})
+       		) 
+        )
+	}).appendTo("body")
 }
+
+function BuildCore(){
+	/*
+	 * 		<div class="pull-right" style="width:1080px; padding: 8px 0;">
+		<ul class="nav nav-list"> 
+		  <li class="nav-header" id>Messages</li>        
+		  <div id="messages"></div>
+		</ul>
+		</div>
+	 * 
+	 */
+	
+}
+function load(component){}
+
 function BuildFooter(){
 	$("<div>",{class:"footer",html:
    		$("<p>",{class:"parapgraph",html:	
@@ -94,16 +87,10 @@ function BuildFooter(){
    	}).appendTo("body")
 }
 
-function Debug(){
-	debug=true;
-	if(debug){
-	showStyle();
-	showMain();
-	showInput(null);
-	}
-}
+function Debug(){debug=!debug;if(debug){showStyle();showMain();showInput(null);}}
+
 function showStyle(){
-	document.getElementById("styleLabel").innerHTML="Css Theme: "+document.getElementById("bootmin").href.substr(document.getElementById("bootmin").href.length-19,11);
+	document.getElementById("styleLabel").innerHTML="Css Theme: "+document.getElementById("style").href.substr(document.getElementById("style").href.length-19,11);
 }
 function showMain(){
 	document.getElementById("mainLabel").innerHTML="Main Theme: "+document.getElementById("main").className;
@@ -119,6 +106,9 @@ function showInput(input){
 function showAbout(){
     ToggleToggables();
 }
+
+
+
 function changeIconColors() {
 	var icons = document.getElementsByTagName("i");
 	for (var i = 0; i < icons.length; ++i) {
@@ -135,60 +125,24 @@ function changeNavs() {
 }
 function changeNavbar() {
 	var navbar = document.getElementById("navbar");
-		if (navbar.className.indexOf("navbar-inverse") == -1) {
-			var currentReportedCssFileUriString = document.getElementById('bootmin').href;
-			var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
-		    if(currentReportedStyleNum!=11){
-				navbar.className = navbar.className + " navbar-inverse";//		document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className+" navbar-inverse";	
-		    }else{
-		    	if(navbar.className.indexOf("navbar-inverse")==-1)
-		    	{
-		    		//navbar.className = navbar.className + " navbar-inverse";
-		    		
-		    		//document.getElementById("helloUsernamePullRight").className=document.getElementById("helloUsernamePullRight").className + " navbar-inverse";
-
-		    		
-		    	}else{
-		    		//navbar.className = navbar.className.substr(0, navbar.className.length - 14);
-		    	}
-
-		    }
-		} 
-		else {
-			navbar.className = navbar.className.substr(0, navbar.className.length - 14);
-		}
+	if (navbar.className.indexOf("navbar-inverse") == -1) {
+		var css = document.getElementById('style').href;
+		var style = css.substring(css.length - 10, css.length - 8);
+		if(style!=11){navbar.className = navbar.className + " navbar-inverse";}} 
+	else {navbar.className = navbar.className.substr(0, navbar.className.length - 14);}
 }
 function changeStyle() {
-	var currentReportedCssFileUriString = document.getElementById('bootmin').href;
-	var currentReportedStyleNum = currentReportedCssFileUriString.substring(currentReportedCssFileUriString.length - 10, currentReportedCssFileUriString.length - 8);
-    var oldBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
-	if (!(globallyTrackedStyleNum == currentReportedStyleNum)) {
-		currentReportedStyleNum = globallyTrackedStyleNum;
-	}
-	var oldStyleNum = currentReportedStyleNum;
-	if (currentReportedStyleNum == 22) {
-		currentReportedStyleNum = 9;
-		globallyTrackedStyleNum = 9;
-	}
-	currentReportedStyleNum++;
-	globallyTrackedStyleNum++;
-	//var theme11 = 	
-	//if (currentReportedStyleNum==11){
-		//alert("currentReportedStyleNum indeed = 11");
-	   // if($("navbar").className.indexOf("navbar-inverse")!=-1){
-		//alert($("navbar").className);
-		//$("navbar").className = $("navbar").className.substr(0, $("navbar").className.length - 14);
-		//alert($("navbar").className);
-		//}
-		//}
-	//}
+	alert("made it");
+	var css= document.getElementById('style').href;
+	var style= css.substring(css.length - 10, css.length - 8);
 	
-	var newBootstrapStringHolder = "bootstrap"+currentReportedStyleNum;
-	var newCssFileUriString = currentReportedCssFileUriString.replace(oldBootstrapStringHolder,newBootstrapStringHolder);
-	document.getElementById('bootmin').href = newCssFileUriString;
+    var oldString= "bootstrap"+style;
+	if (style == 22) { style = 9; } style++;
+	var newString= "bootstrap"+style;
+	var newCss= css.replace(oldString,newString);
+	alert(newCss);
+	document.getElementById('style').href = newCss;
 }
-
-
 function changeIntraBodyElement(ElementID)
 {
 	if(document.getElementById(ElementID).className=="jumbotron masthead"){document.getElementById(ElementID).className="masthead"}
@@ -197,6 +151,17 @@ function changeIntraBodyElement(ElementID)
 	else if(document.getElementById(ElementID).className=="hero-unit"){document.getElementById(ElementID).className="container"}
 	else if(document.getElementById(ElementID).className=="container"){document.getElementById(ElementID).className="jumbotron masthead"}
 }
+function changeInnerStyles(){
+
+	var intraBodyElements=document.getElementsByName("intraBodyElement");
+	for(var i=0;i<intraBodyElements.length;++i)
+	{
+		changeIntraBodyElement(intraBodyElements[i].id);
+	}
+}
+
+
+
 function ToggleSignInDropdown(){
 	if(document.getElementById("signInDropdown").className=="hero-unit hide")document.getElementById("signInDropdown").className = "hero-unit show";
 	else if(document.getElementById("signInDropdown").className="hero-unit show")document.getElementById("signInDropdown").className = "hero-unit hide";
@@ -210,23 +175,6 @@ function ToggleToggables(){
 		}
 		else if(hideables[i].className.indexOf("hide")>-1){
 		hideables[i].className = hideables[i].className.substr(0, hideables[i].className.length - 4);}
-	}
-}
-function enableHardCodedLogin(){
-}
-
-function login(){
-	if ((document.getElementById("username").value=="test"||document.getElementById("username").value=="Wayne"||document.getElementById("username").value=="wayne"||document.getElementById("username").value=="testHomeowner"||document.getElementById("username").value=="testContractor"||document.getElementById("username").value=="testManager") && (document.getElementById("password").value == "pass")) {
-		ToggleSignInDropdown();
-		ToggleTopNavPullRight();
-		if(document.getElementById("username").value=="test"){}
-		else if(document.getElementById("username").value=="Wayne"){}
-		else if(document.getElementById("username").value=="wayne"){}
-		else if(document.getElementById("username").value=="testHomeowner"){showHomeowner()}
-		else if(document.getElementById("username").value=="testContractor"){showContractor()}
-		else if(document.getElementById("username").value=="testManager"){showManager()}
-	} else {
-		alert('username or password not valid');
 	}
 }
 function ToggleTopNavPullRight(){
@@ -251,35 +199,26 @@ function ToggleElementsOfClassXOnPropertyY(x,y){
 			document.getElementsByClassName(x)[i].className = document.getElementsByClassName(x)[i].className.substr(0, document.getElementsByClassName(x)[i].className.length - 4);}
 	}
 }
-function changeInnerStyles(){
-	var intraBodyElements=document.getElementsByName("intraBodyElement");
-	
-	for(var i=0;i<intraBodyElements.length;++i)
-	{
-		changeIntraBodyElement(intraBodyElements[i].id);
-		/*
-		if(intraBodyElements[i].className.indexOf("hide") == -1){
-	    	intraBodyElements[i].className = intraBodyElements[i].className + " hide";
-		}
-		else if(topNavintraBodyElementsPullRights[i].className.indexOf("hide")>-1){
-			intraBodyElements[i].className = topNavPullRights[i].className.substr(0, topNavPullRights[i].className.length - 4);}*/
+function login(){
+	if ((document.getElementById("username").value=="test"||document.getElementById("username").value=="Wayne"||document.getElementById("username").value=="wayne"||document.getElementById("username").value=="testHomeowner"||document.getElementById("username").value=="testContractor"||document.getElementById("username").value=="testManager") && (document.getElementById("password").value == "pass")) {
+		ToggleSignInDropdown();
+		ToggleTopNavPullRight();
+		if(document.getElementById("username").value=="test"){}
+		else if(document.getElementById("username").value=="Wayne"){}
+		else if(document.getElementById("username").value=="wayne"){}
+		else if(document.getElementById("username").value=="testHomeowner"){showHomeowner()}
+		else if(document.getElementById("username").value=="testContractor"){showContractor()}
+		else if(document.getElementById("username").value=="testManager"){showManager()}
+	} else {
+		alert('username or password not valid');
 	}
 }
 
-//document.getElementById("login").onclick(alert("yes!"));
-
-//$('#login').bind('click',function()
-//{
-	//alert("made it!");
-   //if(($('username').val()== 'test') && ($('#password').val()== 'pass')){
-  // 	  alert("finally!");
-  // }
-   //else{
-     // alert('username or password not valid');
-  // }
-//});
-
-function showMessages(){
-	
-}
-
+function showMessages(){}
+function enableHardCodedLogin(){}
+/* Legend:billType     "idea"                     name         quantityType: quantity tierName tierPrice(,)
+ * 
+ * monthly             "Instant Products"         tinymvp.com         value: 200 lander 29, 1000 fledgling 249, 2500 flyer 999, 10000 enterprise 3249, 100000 flagship 19,690
+ * on-demand           "Self-Service Consulting"  selfservemvp.com    hours: 0 spigot 99, 10 hydrant 749, 25 well 2749, 100 pipeline 8749, 1000 niagra 99,249
+ * monthly             "Awesome Time Tracking"    clocktastic.com     users: 1 hacker 10, 6 team 199, 20 smallbiz 599, 100 enterprise 2579, 1000 conglomerate 10599 
+ */

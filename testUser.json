@@ -1,0 +1,74 @@
+{
+	"firstName": "test",
+	"lastName": "user",
+	"email":"testuser@gmail.com",
+	"messages":
+	[
+		{"type": "unread","list":[
+			{
+				[{"type":"from","content":"allison.eponine.mobley@gmail.com"}],
+				[{"type":"subject","content":"test subject"}],
+				[{"type":"body","content":"hello user"}]
+			},
+			{
+				[{"type":"from","content":"connectwithcontractors@gmail.com"}],
+				[{"type":"subject","content":"2nd test subject"}],
+				[{"type":"body","content":"2nd body message"}]
+			}
+		]},
+		{"type": "read","list":[			
+			{
+				[{"type":"from","content":"allison.eponine.mobley@gmail.com"}],
+				[{"type":"subject","content":"read subject"}],
+				[{"type":"body","content":"hello user"}]
+			},
+			{
+				[{"type":"from","content":"connectwithcontractors@gmail.com"}],
+				[{"type":"subject","content":"2nd read subject"}],
+				[{"type":"body","content":"2nd body message"}]
+			}
+		]},
+		{"type": "sent","list":[
+			{
+				[{"type":"from","content":"allison.eponine.mobley@gmail.com"}],
+				[{"type":"subject","content":"test sent subject"}],
+				[{"type":"body","content":"hello user"}]
+			},
+			{
+				[{"type":"from","content":"connectwithcontractors@gmail.com"}],
+				[{"type":"subject","content":"2nd test sent subject"}],
+				[{"type":"body","content":"2nd body message"}]
+			}
+		]}
+	],
+	"projects":
+	[
+		{"type": "recurring","list":[{},{}]},
+		{"type": "maintenance","list":[{},{}]},
+		{"type": "oneTime","list":[{},{}]}
+	],
+	"comments":
+	[
+		{"type": "unread","list":[{},{}]},
+		{"type": "read","list":[{},{}]},
+		{"type": "approved","list":[{},{}]}
+	],
+	"bids":
+	[
+		{"type": "submitted","list":[{},{}]},
+		{"type": "recieved","list":[{},{}]},
+		{"type": "accepted","list":[{},{}]}
+	],
+	"crews":
+	[
+		{"type": "companies","list":[{},{}]},
+		{"type": "associates","list":[{},{}]},
+		{"type": "hyperlocal","list":[{},{}]}
+	],
+	"favorites":
+	[
+		{"type": "clients","list":[{},{}]},
+		{"type": "contractors","list":[{},{}]},
+		{"type": "managers","list":[{},{}]}
+	]
+}
