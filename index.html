@@ -109,22 +109,19 @@
 			 * Buttons: Add Variable Input Line
 			 * Outputs: Proposal, Total Materials Cost
 			 */
-			
-		    //alert("madeIt");
-			execute();
-			
+			execute();			
 			function execute(){
+				var proposalSent = false, addButtonClicked = false, productCount = 0;;
+				var controlValues = new Array(productCount,addButtonClicked);
+				//alert("productCount: "+controlValues[0]+' addButtonClicked: '+controlValues[1]);
 				
-				
-				var proposalSent = false, addButtonClicked = false;
-				var controlValues = new Array(proposalSent,addButtonClicked);
-				alert("proposalSent: "+controlValues[0]+' addButtonClicked: '+controlValues[1]);
-				
-				productCount = 0;
+				AddButtons();
 				AddCompanyLine();
 				AddTotalCostLine();
-			}/*
-				$("#AddNewInputItemButton").attr('href', 'addButtonClicked=true;');
+				$("#AddNewInputItemButton").attr('href','javascript:AddButtonClicked=true;');
+				productCount++;
+				alert("productCount: "+controlValues[0]+' addButtonClicked: '+controlValues[1]);
+				
 				if (proposalSent != true) {
 					if (addButtonClicked) {
 						controlValues= AddVariableInputLine(productCount, addButtonClicked);
@@ -208,68 +205,26 @@
 					;
 				$('#TotalMaterialsCost').val(totalValue);
 			}
-			*/
+			
+			function AddButtons(){
+				$("<ul>", {class : "inline",html : $("<div>", {class : "", html : $("<div>", {class : "nav"}).append(
+						$("<td>", {class : "span3",html :$("<a>", {class : "btn btn-primary btn-large btn-block",id : "AddNewInputItemButton",html : "Add Materials Line"
+				})}))})}).prependTo("#inputs");
+			}
 			function AddCompanyLine() {
-				$("<ul>", {
-					class : "inline",
-					html : $("<div>", {
-						class : "",
-						html : $("<div>", {
-							class : "nav"
-						}).append($("<td>", {
-							class : "span",
-							html : "Company Name: "
-						}), $("<td>", {
-							class : "span",
-							html : $("<input>", {
-								id : "ContractorNameInput"
-							})
-						}), $("<td>", {
-							class : "span",
-							html : "Contractor Name: "
-						}), $("<td>", {
-							class : "span",
-							html : $("<input>", {
-								id : "ContractorCompanyInput"
-							})
-						}), $("<td>", {
-							class : "span",
-							html : "Customer Name: "
-						}), $("<td>", {
-							class : "span",
-							html : $("<input>", {
-								id : "CustomerNameInput"
-							})
-						}), $("<td>", {
-							class : "span",
-							html : $("<a>", {
-								class : "btn btn-small",
-								id : "AddNewInputItemButton",
-								html : "Add New Materials Line"
-							})
-						}))
-					})
+				$("<ul>",{class :"inline",html:$("<div>",{class:"",html:$("<div>", {class : "nav"}).append(
+						$("<td>", {class : "span",html : "Company Name: "}),$("<td>", {class : "span",html : $("<input>", {id : "ContractorNameInput"})}),
+						$("<td>", {class : "span",html : "Contractor Name: "}), $("<td>", {class : "span",html : $("<input>", {id : "ContractorCompanyInput"})}), 
+						$("<td>", {class : "span",html : "Customer Name: "}), $("<td>", {class : "span",html : $("<input>", {id : "CustomerNameInput"})}), 
+						$("<td>", {class : "span",html : "Customer E-mail: "}), $("<td>", {class : "span",html : $("<input>", {id : "CustomerEmailInput"})}))})
 				}).appendTo("#inputs");
 			}
-			
 			function AddTotalCostLine() {
-				$("<ul>", {
-					class : "inline",
-					html : $("<div>", {
-						class : "",
-						html : $("<div>", {
-							class : "nav"
-						}).append($("<td>", {
-							class : "",
-							html : "Total Materials Cost: "
-						}), $("<td>", {
-							class : "",
-							html : $("<input>", {
-								id : "TotalMaterialsCost"
-							})
-						}))
-					})
-				}).prependTo("#proposal");
+				$("<ul>", {class : "inline",html : $("<div>", {
+						class : "",html : $("<div>", {class : "nav"}).append(
+							$("<td>", {class : "",html : "Total Materials Cost: "}), 
+							$("<td>", {class : "",html : $("<input>", {id : "TotalMaterialsCost"
+				})}))})}).prependTo("#proposal");
 			}
 			
 		</script>
