@@ -14,7 +14,7 @@
 		<style media="screen" type="text/css">
 			.btn-super {
 				height: 60px;
-				width: 16%;
+				width: 14%;
 			}
 		</style>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -74,29 +74,30 @@
 		<!-- Footer
 		================================================== -->
 		<section id="about">
-		<footer class="footer">
-		<div class="container">
-		<p class="pull-right"><h4>ConnectWithContractors</h4> Helping Homeowners And Contractors Connect.
-		</p>
-		<p>
-		Designed and Developed by CEO Wayne Matthews and CTO Allison Mobley.
-		</p>
-		<ul class="footer-links">
-		<li>
-		<a href="http://hometract.blogspot.com">Blog</a>
-		</li>
-		<li class="muted">
-		&middot;
-		</li>
-		<li>
-		<a href="https://github.com/connectwithcontractors/connectwithcontractors.github.com/issues?state=open">Issues</a>
-		</li>
-		</ul>
-		<p>
-		&nbsp;
-		</p>
-		</div>
-		</footer>
+			<footer class="footer">
+				<div class="container">
+					<p class="pull-right">
+						<h4 class="brand">ConnectWithContractors</h4><label class="oneLiner"> Homeowners And Contractors Connect.</label>
+					</p>
+					<p>
+						Designed and Developed by CEO Wayne Matthews and CTO Allison Mobley.
+					</p>
+					<ul class="footer-links">
+						<li>
+							<a href="http://hometract.blogspot.com">Blog</a>
+						</li>
+						<li class="muted">
+							&middot;
+						</li>
+						<li>
+							<a href="https://github.com/connectwithcontractors/connectwithcontractors.github.com/issues?state=open">Issues</a>
+						</li>
+					</ul>
+					<p>
+						&nbsp;
+					</p>
+				</div>
+			</footer>
 		</section>
 		<center>
 			<div class="nav navbar-fixed-bottom">
@@ -127,24 +128,31 @@
 		<script src="assets/js/bootstrap-typeahead.js"></script>
 		<script src="assets/js/bootstrap-affix.js"></script>
 		<script src="assets/js/application.js"></script>
-		<script>//TOPLEVEL
-			var superButtons = new Array("CWC","explore","app","news","profile");
-			for(var i =0;i<superButton.length;i++){
+		<script>
+			//TOPLEVEL
+			var superButtons = new Array("CWC", "explore", "app", "news", "profile");
+			for (var i = 0; i < superButton.length; i++) {
 				alert(superButtons[i]);
 			}
 		</script>
-		<script>//CWC
+		<script>
+			//CWC
 			// Every programming language has some form of the following three crucial components of my style of hacking.
 			//     1) Arrays
 			//     2) Integers
 			//     3) Booleans
 			// If you master these three elements you can hack with any programming language, in any environment.
-			var keys = new Array(), values = new Array(), keyCount = 0, valueCount = 0, debug = false;
-			var json = (function() {// Var defined as anonymous function
+
+			// These global arrays and variables store application state
+			var keys = new Array(), values = new Array(), toggleStateArray = new Array(), superButtons = new Array();
+			var keyCount = 0, valueCount = 0, debug = false;
+
+			// Variable set to anonymous function. Henceforth, refer to contents via the dot operator, i.e. json.someString
+			var json = (function() {
 				var json = null;
-				// Used to populate the variable json on reference
-				$.ajax({// Asynchronous jQuery ajax functions
-					'async' : false, // Forced to be synchronous with 'async' : false
+				// The following asynchronous jQuery ajax function is forced to be synchronous with 'async' : false
+				$.ajax({
+					'async' : false,
 					'global' : false,
 					'url' : "wayne.json",
 					'dataType' : "json",
@@ -152,9 +160,12 @@
 						json = data;
 					}
 				});
+
 				return json;
 			})();
-			function traverse(o, func) {
+
+			// Recursive json traversal function
+			function traverse(o, func) {//
 				for (i in o) {
 					func.apply(this, [i, o[i]]);
 					if ( typeof (o[i]) == "object") {
@@ -163,23 +174,35 @@
 				}
 			}
 
-			function isNumber(n) {
+			function isNumber(n) {//checks if parameter passed in numeric
 				return !isNaN(parseFloat(n)) && isFinite(n);
 			}
 
 			function process(key, value) {
+				var debugInfo = "key: " + key + ", keyCount: " + keyCount + "\nvalue: " + value + ", valueCount: " + valueCount + "\n";
+				//if value is not a number, array, or object, thus making it a string
 				if (!(isNumber(value)) && (!(jQuery.isArray(value))) && (!(value == "[object Object]"))) {
+					//debugInfo += "value is a string\n";
 					values[valueCount] = value;
 					valueCount++;
+				} else {
+					if (isNumber(value)) {
+						//debugInfo += "value is a number\n";
+					} else if ( value instanceof Array) {
+						//debugInfo += "value is an array\n";
+					} else {
+						//debugInfo += "value: " + value + " is an object";
+					}
+
 				}
+				//if key is not a number, or the strings "type", "list", or "value"
 				if (!(isNumber(key)) && (key != "type" && key != "list" && key != "value")) {
 					keys[keyCount] = key;
 					keyCount++;
 				}
+				//alert(debugInfo);
 			}
 
-			traverse(json, process);
-			var toggleStateArray = new Array();
 			function toggle(sectionID, toggleStateArrayIndex) {
 				for (var q = 0; q < toggleStateArray.length; q++) {
 					if (q != toggleStateArrayIndex) {
@@ -201,6 +224,7 @@
 			}
 
 			function buildCWC() {
+				traverse(json, process);
 				for (var i in keys) {
 					//alert(keys[i]);
 					$('#CWCui').append("<section  class=\"hide\" id=\"" + keys[i] + "\"><div class=\"page-header\"><h1>" + keys[i] + "</h1></div></section>");
@@ -261,7 +285,8 @@
 
 			buildCWC();
 		</script>
-		<script>//APP
+		<script>
+			//APP
 			/*
 			 * Hard Inputs: Contractor Name, Contractor Company, Client Name
 			 * Auto Inputs: Today's Date
@@ -269,23 +294,23 @@
 			 * Buttons: Add Variable Input Line
 			 * Outputs: Proposal, Total Materials Cost
 			 */
-			execute();			
-			function execute(){
-				var proposalSent = false, addButtonClicked = false, productCount = 0;;
-				var controlValues = new Array(productCount,addButtonClicked);
+			execute();
+			function execute() {
+				var proposalSent = false, addButtonClicked = false, productCount = 0;
+				;
+				var controlValues = new Array(productCount, addButtonClicked);
 				//alert("productCount: "+controlValues[0]+' addButtonClicked: '+controlValues[1]);
-				
-				
+
 				AddCompanyLine();
 				AddButtons();
 				AddTotalCostLine();
-				$("#AddNewInputItemButton").attr('href','javascript:AddButtonClicked=true;');
+				$("#AddNewInputItemButton").attr('href', 'javascript:AddButtonClicked=true;');
 				productCount++;
 				//alert("productCount: "+controlValues[0]+' addButtonClicked: '+controlValues[1]);
-				
+
 				if (proposalSent != true) {
 					if (addButtonClicked) {
-						controlValues= AddVariableInputLine(productCount, addButtonClicked);
+						controlValues = AddVariableInputLine(productCount, addButtonClicked);
 						alert(controlValues);
 					}
 				}
@@ -296,31 +321,61 @@
 				//return { name:this.name, value:this.value };
 			}
 
-			function AddVariableInputLine(productCount,addButtonClicked) {
+			function AddVariableInputLine(productCount, addButtonClicked) {
 				var pni = "ProductNameInput" + productCount;
 				var ppi = "ProductPriceInput" + productCount;
 				var pqi = "ProductQuantityInput" + productCount;
 				var ptc = "ProductTotalCostOutput" + productCount;
-				$("<ul>", {class : "inline", html : 
-					$("<div>", { class : "", html : 
-						$("<div>", { class : "nav" }).append(
-							$("<td>", { class : "", html : "Product Name: "}), 
-							$("<td>", {class : "",html : $("<input>", {id : pni})}), 
-							$("<td>", {class : "",html : "Unit Price: "}), 
-							$("<td>", {class : "",html : $("<input>", {id : ppi})}), 
-							$("<td>", {class : "",html : "Quantity: "}), 
-							$("<td>", {class : "",html : $("<input>", {id : pqi})}), 
-							$("<td>", {class : "",html : "Cost: "}), 
-							$("<td>", {class : "",html : $("<input>", {id : ptc})})
-						)
+				$("<ul>", {
+					class : "inline",
+					html : $("<div>", {
+						class : "",
+						html : $("<div>", {
+							class : "nav"
+						}).append($("<td>", {
+							class : "",
+							html : "Product Name: "
+						}), $("<td>", {
+							class : "",
+							html : $("<input>", {
+								id : pni
+							})
+						}), $("<td>", {
+							class : "",
+							html : "Unit Price: "
+						}), $("<td>", {
+							class : "",
+							html : $("<input>", {
+								id : ppi
+							})
+						}), $("<td>", {
+							class : "",
+							html : "Quantity: "
+						}), $("<td>", {
+							class : "",
+							html : $("<input>", {
+								id : pqi
+							})
+						}), $("<td>", {
+							class : "",
+							html : "Cost: "
+						}), $("<td>", {
+							class : "",
+							html : $("<input>", {
+								id : ptc
+							})
+						}))
 					})
 				}).appendTo("#inputs")
 				addEventListenerForChangesOnGivenInput(ppi, productCount);
 				addEventListenerForChangesOnGivenInput(pqi, productCount);
 				addEventListenerForChangesOnGivenInput(ptc, productCount);
 				productCount++;
-				addButtonClicked=false;
-				return { productCount:this.productCount, addButtonClicked:this.addButtonClicked };
+				addButtonClicked = false;
+				return {
+					productCount : this.productCount,
+					addButtonClicked : this.addButtonClicked
+				};
 			}
 
 			function addEventListenerForChangesOnGivenInput(inputID, index) {
@@ -366,38 +421,116 @@
 					;
 				$('#TotalMaterialsCost').val(totalValue);
 			}
-			
-			function AddButtons(){
-				$("<input>",{id:"sampleInputID"}).prependTo('body');
+
+			function AddButtons() {
+				$("<input>", {
+					id : "sampleInputID"
+				}).prependTo('body');
 				var width = $("#sampleInputID").width();
 				//width = width/3;
-				width = width/2;
+				width = width / 2;
 				$("#sampleInputID").remove();
-				var widthStr = "width:"+width+"px";
-				$("<ul>", {class : "inline",html : $("<div>", {class : "", html : $("<div>", {class : "nav"}).append(
-							$("<div>", {class : "span3",html :$("<div>", {class : "btn-toolbar",id : "AddNewInputItemButton",html : "Send Proposal",style : widthStr})}).append(
-									$("<td>", {class : "",html :$("<a>", {class : "btn btn-success btn-large",id : "AddNewInputItemButton",html : "Send Proposal",style : widthStr})}),
-								    $("<td>", {class : "",html :$("<a>", {class : "btn btn-primary btn-large",id : "AddNewInputItemButton",html : "Materials Line++",style : widthStr})})
-							)
-				)})}).prependTo("#inputs");
+				var widthStr = "width:" + width + "px";
+				$("<ul>", {
+					class : "inline",
+					html : $("<div>", {
+						class : "",
+						html : $("<div>", {
+							class : "nav"
+						}).append($("<div>", {
+							class : "span3",
+							html : $("<div>", {
+								class : "btn-toolbar",
+								id : "AddNewInputItemButton",
+								html : "Send Proposal",
+								style : widthStr
+							})
+						}).append($("<td>", {
+							class : "",
+							html : $("<a>", {
+								class : "btn btn-success btn-large",
+								id : "AddNewInputItemButton",
+								html : "Send Proposal",
+								style : widthStr
+							})
+						}), $("<td>", {
+							class : "",
+							html : $("<a>", {
+								class : "btn btn-primary btn-large",
+								id : "AddNewInputItemButton",
+								html : "Materials Line++",
+								style : widthStr
+							})
+						})))
+					})
+				}).prependTo("#inputs");
 				//$("#sampleInputID").class('hide');
 			}
+
 			function AddCompanyLine() {
-				$("<ul>",{class :"inline",html:$("<div>",{class:"",html:$("<div>", {class : "nav"}).append(
-						$("<td>", {class : "span",html : "Company Name: "}),$("<td>", {class : "span",html : $("<input>", {id : "ContractorNameInput"})}),
-						$("<td>", {class : "span",html : "Contractor Name: "}), $("<td>", {class : "span",html : $("<input>", {id : "ContractorCompanyInput"})}), 
-						$("<td>", {class : "span",html : "Customer Name: "}), $("<td>", {class : "span",html : $("<input>", {id : "CustomerNameInput"})}), 
-						$("<td>", {class : "span",html : "Customer E-mail: "}), $("<td>", {class : "span",html : $("<input>", {id : "CustomerEmailInput"})}))})
+				$("<ul>", {
+					class : "inline",
+					html : $("<div>", {
+						class : "",
+						html : $("<div>", {
+							class : "nav"
+						}).append($("<td>", {
+							class : "span",
+							html : "Company Name: "
+						}), $("<td>", {
+							class : "span",
+							html : $("<input>", {
+								id : "ContractorNameInput"
+							})
+						}), $("<td>", {
+							class : "span",
+							html : "Contractor Name: "
+						}), $("<td>", {
+							class : "span",
+							html : $("<input>", {
+								id : "ContractorCompanyInput"
+							})
+						}), $("<td>", {
+							class : "span",
+							html : "Customer Name: "
+						}), $("<td>", {
+							class : "span",
+							html : $("<input>", {
+								id : "CustomerNameInput"
+							})
+						}), $("<td>", {
+							class : "span",
+							html : "Customer E-mail: "
+						}), $("<td>", {
+							class : "span",
+							html : $("<input>", {
+								id : "CustomerEmailInput"
+							})
+						}))
+					})
 				}).appendTo("#inputs");
 			}
+
 			function AddTotalCostLine() {
-				$("<ul>", {class : "inline",html : $("<div>", {
-						class : "",html : $("<div>", {class : "nav"}).append(
-							$("<td>", {class : "",html : "Total Materials Cost: "}), 
-							$("<td>", {class : "",html : $("<input>", {id : "TotalMaterialsCost"
-				})}))})}).prependTo("#proposal");
+				$("<ul>", {
+					class : "inline",
+					html : $("<div>", {
+						class : "",
+						html : $("<div>", {
+							class : "nav"
+						}).append($("<td>", {
+							class : "",
+							html : "Total Materials Cost: "
+						}), $("<td>", {
+							class : "",
+							html : $("<input>", {
+								id : "TotalMaterialsCost"
+							})
+						}))
+					})
+				}).prependTo("#proposal");
 			}
-			
+
 		</script>
 	</body>
 </html>
