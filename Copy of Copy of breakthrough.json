@@ -1,0 +1,1177 @@
+{
+	"Application": "ConnectWithContractors",
+	"Database:": "To Be Defined",
+	"Architecture": [
+		{
+			"SuperButton": "CWC",
+			"Structure": [
+				{
+					"dashboard": [
+						{
+							"type": "private",
+							"list": [
+								{
+									"type": "firstName",
+									"value": "testFirstName"
+								}, {
+									"type": "lastName",
+									"value": "testLastName"
+								}
+							]
+						}, {
+							"type": "public",
+							"list": [
+								{
+									"type": "userName",
+									"value": "testUserName"
+								}, {
+									"type": "createdDate",
+									"value": "06092012"
+								}
+							]
+						}, {
+							"type": "protected",
+							"list": [
+								{
+									"type": "email",
+									"value": "testEmail@gmail.com"
+								}, {
+									"type": "cell",
+									"value": "(804)555-5555"
+								}
+							]
+						}
+					],
+					"messages": [
+						{
+							"type": "unread",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "allison.eponine.mobley@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test unread subject"
+										}, {
+											"type": "body",
+											"value": "hello unread user"
+										}, {
+											"type": "status",
+											"value": "unread"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "allie.e.mobley@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test unread subject2"
+										}, {
+											"type": "body",
+											"value": "hello unread user2"
+										}, {
+											"type": "status",
+											"value": "unread"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "read",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "read@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test read subject"
+										}, {
+											"type": "body",
+											"value": "hello read user"
+										}, {
+											"type": "status",
+											"value": "read"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "read2@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test read subject2"
+										}, {
+											"type": "body",
+											"value": "hello read user2"
+										}, {
+											"type": "status",
+											"value": "read"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "sent",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "sent@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test sent subject"
+										}, {
+											"type": "body",
+											"value": "hello sent user"
+										}, {
+											"type": "status",
+											"value": "sent"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "sent2@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test sent subject2"
+										}, {
+											"type": "body",
+											"value": "hello sent user2"
+										}, {
+											"type": "status",
+											"value": "sent"
+										}
+									]
+								}
+							]
+						}
+					],
+					"projects": [
+						{
+							"type": "recurring",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "maintenance",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "oneTime",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}
+					],
+					"comments": [
+						{
+							"type": "submitted",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test submitted comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test submitted comment text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "hidden",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test hidden comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test hidden comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test hidden comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test hidden comment text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "approved",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test approved comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test approved comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test approved comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test approved comment text"
+										}
+									]
+								}
+							]
+						}
+					],
+					"bids": [
+						{
+							"type": "new",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test new bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test new bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test submitted bid text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "declined",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test declined bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test declined bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test declined bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test declined bid text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "accepted",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test accepted bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test accepted bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test accepted bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test accepted bid text"
+										}
+									]
+								}
+							]
+						}
+					],
+					"crews": [
+						{
+							"type": "companies",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test company crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test company crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test company crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test company crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "associates",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test associates crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test associates crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test associates crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test associates crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "hyperlocal",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test hyperlocal crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test hyperlocal crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test hyperlocal crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test hyperlocal crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}
+					],
+					"favorites": [
+						{
+							"type": "clients",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite client userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite client userName2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "contractors",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite contractor userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite contractor userName2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "managers",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite manager userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite manager userName2"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+		, {
+			"explore": [
+
+				{
+					"dashboard": [
+						{
+							"type": "private",
+							"list": [
+								{
+									"type": "firstName",
+									"value": "testFirstName"
+								}, {
+									"type": "lastName",
+									"value": "testLastName"
+								}
+							]
+						}, {
+							"type": "public",
+							"list": [
+								{
+									"type": "userName",
+									"value": "testUserName"
+								}, {
+									"type": "createdDate",
+									"value": "06092012"
+								}
+							]
+						}, {
+							"type": "protected",
+							"list": [
+								{
+									"type": "email",
+									"value": "testEmail@gmail.com"
+								}, {
+									"type": "cell",
+									"value": "(804)555-5555"
+								}
+							]
+						}
+					],
+					"messages": [
+						{
+							"type": "unread",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "allison.eponine.mobley@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test unread subject"
+										}, {
+											"type": "body",
+											"value": "hello unread user"
+										}, {
+											"type": "status",
+											"value": "unread"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "allie.e.mobley@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test unread subject2"
+										}, {
+											"type": "body",
+											"value": "hello unread user2"
+										}, {
+											"type": "status",
+											"value": "unread"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "read",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "read@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test read subject"
+										}, {
+											"type": "body",
+											"value": "hello read user"
+										}, {
+											"type": "status",
+											"value": "read"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "read2@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test read subject2"
+										}, {
+											"type": "body",
+											"value": "hello read user2"
+										}, {
+											"type": "status",
+											"value": "read"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "sent",
+							"list": [
+								{
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "sent@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test sent subject"
+										}, {
+											"type": "body",
+											"value": "hello sent user"
+										}, {
+											"type": "status",
+											"value": "sent"
+										}
+									]
+								}, {
+									"type": "message",
+									"list": [
+										{
+											"type": "from",
+											"value": "sent2@gmail.com"
+										}, {
+											"type": "subject",
+											"value": "test sent subject2"
+										}, {
+											"type": "body",
+											"value": "hello sent user2"
+										}, {
+											"type": "status",
+											"value": "sent"
+										}
+									]
+								}
+							]
+						}
+					],
+					"projects": [
+						{
+							"type": "recurring",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "maintenance",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "oneTime",
+							"list": [
+								{
+									"type": "project",
+									"list": [
+										{
+											"type": "contractor",
+											"value": "Test recurring project Contractor UserName"
+										}, {
+											"type": "amount",
+											"value": "$1,000,000.00"
+										}, {
+											"type": "ledger",
+											"value": "test tecurring project ledger text"
+										}
+									]
+								}, {
+									"type": "project",
+									"list": [
+
+										{
+											"type": "contractor",
+											"value": "test recurring project contractor userName2"
+										}, {
+											"type": "amount",
+											"value": "$1000000000.00"
+										}, {
+											"type": "ledger",
+											"value": "test recurring project ledger text2"
+										}
+									]
+								}
+							]
+						}
+					],
+					"comments": [
+						{
+							"type": "submitted",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test submitted comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test submitted comment text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "hidden",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test hidden comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test hidden comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test hidden comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test hidden comment text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "approved",
+							"list": [
+								{
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test approved comment poster userName"
+										}, {
+											"type": "text",
+											"value": "test approved comment text"
+										}
+									]
+								}, {
+									"type": "comment",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test approved comment poster userName2"
+										}, {
+											"type": "text",
+											"value": "test approved comment text"
+										}
+									]
+								}
+							]
+						}
+					],
+					"bids": [
+						{
+							"type": "new",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test new bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test new bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test submitted bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test submitted bid text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "declined",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test declined bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test declined bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test declined bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test declined bid text2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "accepted",
+							"list": [
+								{
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test accepted bid poster userName"
+										}, {
+											"type": "text",
+											"value": "test accepted bid text"
+										}
+									]
+								}, {
+									"type": "bid",
+									"list": [
+										{
+											"type": "poster",
+											"value": "test accepted bid poster userName2"
+										}, {
+											"type": "text",
+											"value": "test accepted bid text"
+										}
+									]
+								}
+							]
+						}
+					],
+					"crews": [
+						{
+							"type": "companies",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test company crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test company crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test company crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test company crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "associates",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test associates crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test associates crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test associates crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test associates crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "hyperlocal",
+							"list": [
+								{
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test hyperlocal crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test hyperlocal crew member 1, test company crew member 2"
+										}
+									]
+								}, {
+									"type": "crew",
+									"list": [
+										{
+											"type": "manager",
+											"value": "test hyperlocal crew manager userName"
+										}, {
+											"type": "members",
+											"value": "test hyperlocal crew member 1, test company crew member 2"
+										}
+									]
+								}
+							]
+						}
+					],
+					"favorites": [
+						{
+							"type": "clients",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite client userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite client userName2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "contractors",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite contractor userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite contractor userName2"
+										}
+									]
+								}
+							]
+						}, {
+							"type": "managers",
+							"list": [
+								{
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite manager userName"
+										}
+									]
+								}, {
+									"type": "favorite",
+									"list": [
+										{
+											"type": "userName",
+											"value": "test favorite manager userName2"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
