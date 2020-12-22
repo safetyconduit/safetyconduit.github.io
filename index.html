@@ -1,80 +1,138 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Stalinist One' rel='stylesheet'>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-</style>
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .monoton {
+      font-family: 'Monoton';
+      font-size: 38px;
+    }
+
+    .audiowide {
+      font-family: 'Audiowide';
+      font-size: 22px;
+    }
+
+    .stalinist {
+      font-family: 'Stalinist One';
+      font-size: 22px;
+    }
+  </style>
 </head>
+
 <body>
-<h1>SAFETY CONDUIT</h1>
-<h3>Covid Screening Tool</h3>
+  <img src="SafetyConduit.png" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+  <h1 class="audiowide" style="text-align: center;">Covid Self-Screen</h1>
 
-<div class="container">
-  <form action="mailto:safety@emergesystems.com" method="post" enctype="text/plain">
-    
-    Project
-    <label for="Project">WorkerName</label>
-    <input type="text" id="Project" name="Project" placeholder="Project..">
-    
-    <label for="WorkerName">WorkerName</label>
-    <input type="text" id="WorkerName" name="WorkerName" placeholder="Worker Name..">
-    
-    <label for="AssessmentDate">AssessmentDate</label>
-    <input type="date" id="WorkerName" name="AssessmentDate" placeholder="Worker Name..">
-    
-    <input type="checkbox" id="TempBelow100.4F" name="TempBelow100.4F" value="TempBelow100.4F">
-    <label for="TempBelow100.4F">TempBelow100.4F</label><br>
-    
-    TempBelow100.4F Company, Site, WorkArea, Activity, Dehydration, Dizziness, ClammySkin, NewSeizures, SlurredSpeech, Drowsiness, NewConfusion, BluishSKin, ChestPain, HardBreathing
+  <div class="container">
+    <form action="mailto:emergesystemaccount@emergesystems.com?subject=SafetyConduit-Covid" method="post"
+      enctype="text/plain">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <input type="hidden" id="Instructions" name="Instructions"
+        value="Send this email to file. Do not alter subject or body. Make changes via website only.">
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
+      <label for="Project">Project</label>
+      <input type="text" id="Project" name="Project" placeholder="Project..">
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <label for="WorkerName">WorkerName</label>
+      <input type="text" id="WorkerName" name="WorkerName" placeholder="Worker Name..">
 
-    <input type="submit" value="Submit">
-  </form>
-</div>
+      <label for="AssessmentDate">AssessmentDate</label>
+      <input type="date" id="AssessmentDate" name="AssessmentDate" placeholder=""><br><br>
+
+      <label for="Company">Company</label>
+      <input type="text" id="Company" name="Company" placeholder="Company..">
+
+      <label for="Site">Site</label>
+      <input type="text" id="Site" name="Site" placeholder="Site..">
+
+      <label for="WorkArea">WorkArea</label>
+      <input type="text" id="WorkArea" name="WorkArea" placeholder="WorkArea..">
+
+      <label for="Activity">Activity</label>
+      <input type="text" id="Activity" name="Activity" placeholder="Activity..">
+
+      <input type="checkbox" id="TempBelow100.4F" name="TempBelow100.4F" value="True">
+      <label for="TempBelow100.4F">TempBelow100.4F</label><br>
+
+      <input type="checkbox" id="Dehydration" name="Dehydration" value="True">
+      <label for="Dehydration">Dehydration</label><br>
+
+      <input type="checkbox" id="Dizziness" name="Dizziness" value="True">
+      <label for="Dizziness">Dizziness</label><br>
+
+      <input type="checkbox" id="ClammySkin" name="ClammySkin" value="True">
+      <label for="ClammySkin">ClammySkin</label><br>
+
+      <input type="checkbox" id="NewSeizures" name="NewSeizures" value="True">
+      <label for="NewSeizures">NewSeizures</label><br>
+
+      <input type="checkbox" id="SlurredSpeech" name="SlurredSpeech" value="True">
+      <label for="SlurredSpeech">SlurredSpeech</label><br>
+
+      <input type="checkbox" id="Drowsiness" name="Drowsiness" value="True">
+      <label for="Drowsiness">Drowsiness</label><br>
+
+      <input type="checkbox" id="NewConfusion" name="NewConfusion" value="True">
+      <label for="NewConfusion">NewConfusion</label><br>
+
+      <input type="checkbox" id="BluishSkin" name="BluishSkin" value="True">
+      <label for="BluishSkin">BluishSkin</label><br>
+
+      <input type="checkbox" id="ChestPain" name="ChestPain" value="True">
+      <label for="ChestPain">ChestPain</label><br>
+
+      <input type="checkbox" id="HardBreathing" name="HardBreathing" value="True">
+      <label for="HardBreathing">HardBreathing</label><br>
+
+      <br><input type="submit" value="Submit">
+    </form>
+  </div>
 
 </body>
+
 </html>
